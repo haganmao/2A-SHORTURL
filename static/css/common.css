@@ -1,0 +1,77 @@
+/* colors 
+#666699 purplegrey
+#FFFFCC eggyellow
+#0099CC lightblue
+
+#0099CC lightblue
+#FFFFFF white
+#666666 darkgrey
+*/
+
+
+/* initial project css style */
+
+body,
+div,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.head-nav-container {
+    height: 40px;
+    line-height: 40px;
+    border-top: #0099CC solid 4px;
+    border-bottom: #666666 solid 1px;
+}
+
+.head-nav-container-main {
+    margin: 0 auto;
+    width: 1280px;
+}
+
+.head-nav-ul-left {
+    float: left;
+}
+
+.head-nav-ul-left li {
+    float: left;
+    padding: 0 20px;
+}
+
+.head-nav-ul-left>li {
+    margin-top: -5px;
+    padding-top: 3px;
+}
+
+.head-nav-ul-left>li:hover {
+    border-bottom: solid 1px #0099CC;
+    background-color: #ededeef0;
+    color: #0099CC;
+}
+
+.head-nav-ul-left>li>a:hover {
+    background-color: #ededeef0;
+    color: #0099CC;
+}
+
+.head-nav-ul-right {
+    float: right;
+}
+
+.head-nav-ul-right>li {
+    float: left;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #666666;
+}
