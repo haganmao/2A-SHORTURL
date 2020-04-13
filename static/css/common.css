@@ -32,9 +32,17 @@ li {
     border-bottom: #666666 solid 1px;
 }
 
-.head-nav-container-main {
+.foot-nav-container {}
+
+.head-nav-container-main,
+foot-nav-container-main {
     margin: 0 auto;
     width: 1280px;
+}
+
+a {
+    text-decoration: none;
+    color: #666666;
 }
 
 .head-nav-ul-left {
@@ -44,11 +52,6 @@ li {
 .head-nav-ul-left li {
     float: left;
     padding: 0 20px;
-}
-
-.head-nav-ul-left>li {
-    margin-top: -5px;
-    padding-top: 3px;
 }
 
 .head-nav-ul-left>li:hover {
@@ -71,7 +74,46 @@ li {
     padding: 0 20px;
 }
 
-a {
-    text-decoration: none;
-    color: #666666;
+.head-nav-ul-right>li:hover {
+    border-bottom: solid 1px #0099cc;
+    background-color: #ededeef0;
+    color: #0099cc;
+}
+
+.head-nav-ul-right>li>a:hover {
+    background-color: #ededeef0;
+    color: #0099cc;
+}
+
+.Scenarios-box {
+    display: none;
+    position: absolute;
+}
+
+.Scenarios:hover .Scenarios-box {
+    display: block;
+}
+
+.Scenarios-box li:hover {
+    border-top: solid 1px #666666;
+    border-bottom: solid 1px #666666;
+}
+
+.Scenarios-box li:hover,
+.Scenarios-box li a:hover {
+    background-color: #ededeef0;
+    color: #0099cc;
+}
+
+.Scenarios-box li {
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: -20px;
+    padding-left: 20px;
+}
+
+.downarrow {
+    height: 14px;
+    width: 14px;
 }
