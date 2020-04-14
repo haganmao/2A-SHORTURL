@@ -1,13 +1,11 @@
 import template
-import json
-
-from tornado.web import RequestHandler
+from tornado.web import RequestHandler as requesthandler
 
 
 
-#Index handler, rendering html pages
-class HomeHandler(RequestHandler):
+#Home handler, rendering html pages
+class HomeHandler(requesthandler):
      def get (self):
-         self.render("home.html")
+         self.render("base.html")
 
 

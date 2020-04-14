@@ -32,12 +32,14 @@ li {
     border-bottom: #666666 solid 1px;
 }
 
-.foot-nav-container {}
-
-.head-nav-container-main,
-foot-nav-container-main {
+.head-nav-container-main {
     margin: 0 auto;
     width: 1280px;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #aaaaaa;
 }
 
 a {
@@ -116,4 +118,28 @@ a {
 .downarrow {
     height: 14px;
     width: 14px;
+}
+
+.foot-nav-container-main-footer {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.foot-nav-container-main-footer {
+    text-align: center;
+    padding-top: 60px;
+}
+
+.foot-nav-container-main-footer .foot-nav-ul li {
+    display: inline-block;
+    border-right: #666666 solid 1px;
+    padding: 0 30px;
+}
+
+.foot-nav-container-main-footer .foot-nav-ul li a {
+    color: #666666;
+}
+
+.foot-nav-container-main-footer .foot-nav-ul li:hover a {
+    color: #0099CC;
 }

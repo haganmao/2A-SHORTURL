@@ -44,6 +44,7 @@
 
                 <li>
                     <a href="#">Contact</a></li>
+            {% block nav %} {% end %}
             </ul>
             <!-- nav right end -->
         </div>
@@ -61,28 +62,27 @@
     <br>
     <hr>
     <!-- foot nav start -->
-    <div class="foot-nav-container">
-        <div class="foot-nav-container-main">
-            <ul>
-                <li><a href="">Github</a></li>
-                <li><a href="">Privacy</a></li>
-                <li><a href="">Terms of Service</a></li>
-                <li class="languages">
-                    <a href="">Language(English)
-                        <ul>
-                            <li><a href="">简体中文</a></li>
-                <li><a href="">日本語</a></li>
+    <div class="foot-nav-container-content">
+        <div class="foot-nav-container-main-footer">
+            <ul class="foot-nav-ul">
+                <li><a href="https://github.com/haganmao/2A-SHORTURL">Github</a>
+                    <img style="width: 16px;height:16px;" src="../static/images/github-logo.png" alt="">
+                </li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li class="language">
+                    <a href="">Language</a>
+                </li>
             </ul>
             </a>
             </li>
             </ul>
+            <p class="copyright">
+                © 2020 2A SHORTURL Inc. All Rights Reserved.
+            </p>
         </div>
-        <div>
-            © 2020 2A SHORTURL. All Rights Reserved.
-        </div>
+        <br>
     </div>
     <!-- foot nav end -->
-
 </body>
-
 </html>
