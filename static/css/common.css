@@ -25,11 +25,69 @@ li {
     list-style: none;
 }
 
+.button {
+    text-align: center;
+}
+
+.btnS {
+    position: relative;
+    background-color: #a2cd3f;
+    border: 1px solid #666666;
+    border-radius: 5px;
+    color: #FFFFFF;
+    width: 10%;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.btnS:after {
+    content: "";
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -100%!important;
+    opacity: 1;
+    transition: all 5s
+}
+
+.btnS:active:after {
+    padding: 0;
+    margin: 0;
+    background-color: #b3ff00;
+    opacity: 1;
+    transition: 0s;
+}
+
+#btn-reset {
+    width: 10%;
+    background-color: #666666;
+    border: 1px solid #666666;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+#btn-short:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#btn-reset:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#longurl {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.margintop {
+    margin-top: 250px;
+}
+
 .head-nav-container {
     height: 40px;
     line-height: 40px;
-    border-top: #0099CC solid 4px;
-    border-bottom: #666666 solid 1px;
+    border-top: #a2cd3f solid 4px;
 }
 
 .head-nav-container-main {
@@ -58,14 +116,13 @@ a {
 }
 
 .head-nav-ul-left>li:hover {
-    border-bottom: solid 1px #0099CC;
-    background-color: #ededeef0;
-    color: #0099CC;
+    border-bottom: solid 1px #a2cd3f;
+    color: #a2cd3f;
 }
 
 .head-nav-ul-left>li>a:hover {
     background-color: #ededeef0;
-    color: #0099CC;
+    color: #a2cd3f;
 }
 
 .head-nav-ul-right {
@@ -78,14 +135,14 @@ a {
 }
 
 .head-nav-ul-right>li:hover {
-    border-bottom: solid 1px #0099cc;
+    border-bottom: solid 1px #a2cd3f;
     background-color: #ededeef0;
-    color: #0099cc;
+    color: #a2cd3f;
 }
 
 .head-nav-ul-right>li>a:hover {
     background-color: #ededeef0;
-    color: #0099cc;
+    color: #a2cd3f;
 }
 
 .Scenarios-box {
@@ -98,14 +155,14 @@ a {
 }
 
 .Scenarios-box li:hover {
-    border-top: solid 1px #666666;
-    border-bottom: solid 1px #666666;
+    border-top: solid 1px #a2cd3f;
+    border-bottom: solid 1px #a2cd3f;
 }
 
 .Scenarios-box li:hover,
 .Scenarios-box li a:hover {
     background-color: #ededeef0;
-    color: #0099cc;
+    color: #a2cd3f;
 }
 
 .Scenarios-box li {
@@ -119,6 +176,10 @@ a {
 .downarrow {
     height: 14px;
     width: 14px;
+}
+
+.head-nav-ul-right .Scenarios>img:hover {
+    border-bottom: 1px solid #a2cd3f;
 }
 
 .foot-nav-container-main-footer {
@@ -142,5 +203,5 @@ a {
 }
 
 .foot-nav-container-main-footer .foot-nav-ul li:hover a {
-    color: #0099CC;
+    color: #a2cd3f;
 }
