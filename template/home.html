@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-</body>
-
-</html>
+{% extends 'base.html' %}{% block nav %}
+<form class="form-content" action="">
+    <div class="form-group">
+        <label for="longurl"></label>
+        <textarea class="form-control" name="longurl" type="url" id="longurl" rows="6" placeholder="Shorten your long link here!" spellcheck="false"></textarea>
+        <br>
+        <div class="button">
+            <button type="button" id="btn-short" class="btnS">Shorten</button>
+            <button type="reset" id="btn-reset">Clear</button>
+        </div>
+    </div>
+</form>
+{% end %}
