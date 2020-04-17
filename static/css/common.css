@@ -29,6 +29,11 @@ li {
     text-align: center;
 }
 
+.expireTime {
+    display: block;
+    text-align: center;
+}
+
 .btnS {
     position: relative;
     background-color: #a2cd3f;
@@ -176,6 +181,12 @@ a {
 .downarrow {
     height: 14px;
     width: 14px;
+}
+
+.card-header {
+    color: #303659;
+    font-weight: bolder;
+    background-color: transparent;
 }
 
 .head-nav-ul-right .Scenarios>img:hover {
