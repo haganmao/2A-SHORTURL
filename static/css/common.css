@@ -25,6 +25,12 @@ li {
     list-style: none;
 }
 
+.card {
+    border: 1px groove #a2cd3f;
+    border-radius: 5px;
+    box-shadow: ;
+}
+
 .button {
     text-align: center;
 }
@@ -73,11 +79,11 @@ li {
 }
 
 #btn-short:hover {
-    box-shadow: 0 12px 16px 0 rgb(39, 136, 0), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 10px 15px 0 #a2cd3f, 0 5px 20px 0 #a2cd3f;
 }
 
 #btn-reset:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 10px 15px 0 #666666, 0 5px 20px 0 #666666;
 }
 
 #longurl {
