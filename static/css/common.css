@@ -6,6 +6,16 @@
 #0099CC lightblue
 #FFFFFF white
 #666666 darkgrey
+
+Green
+RBG - 0, 141, 54
+Hex - #008d36
+
+Grey 
+Greyscale - 69%
+RGB - 79, 79, 79
+Hex - #4f4f4f
+
 */
 
 
@@ -26,9 +36,9 @@ li {
 }
 
 .card {
-    border: 1px groove #a2cd3f;
+    border: 1px groove #008d36;
     border-radius: 5px;
-    box-shadow: ;
+    box-shadow: 0 10px 15px 0 #008d36, 0 5px 20px 0 #008d36;
 }
 
 .button {
@@ -42,8 +52,8 @@ li {
 
 .btnS {
     position: relative;
-    background-color: #a2cd3f;
-    border: 1px solid #666666;
+    background-color: #008d36;
+    border: 1px solid #4f4f4f;
     border-radius: 5px;
     color: #FFFFFF;
     width: 10%;
@@ -58,7 +68,7 @@ li {
     padding-top: 300%;
     padding-left: 350%;
     margin-left: -100%!important;
-    opacity: 1;
+    opacity: 0;
     transition: all 5s
 }
 
@@ -72,18 +82,18 @@ li {
 
 #btn-reset {
     width: 10%;
-    background-color: #666666;
-    border: 1px solid #666666;
+    background-color: #4f4f4f;
+    border: 1px solid #4f4f4f;
     color: #FFFFFF;
     border-radius: 5px;
 }
 
 #btn-short:hover {
-    box-shadow: 0 10px 15px 0 #a2cd3f, 0 5px 20px 0 #a2cd3f;
+    box-shadow: 0 10px 15px 0 #008d36, 0 5px 20px 0 #008d36;
 }
 
 #btn-reset:hover {
-    box-shadow: 0 10px 15px 0 #666666, 0 5px 20px 0 #666666;
+    box-shadow: 0 10px 15px 0 #4f4f4f, 0 5px 20px 0 #4f4f4f;
 }
 
 #longurl {
@@ -98,7 +108,7 @@ li {
 .head-nav-container {
     height: 40px;
     line-height: 40px;
-    border-top: #a2cd3f solid 4px;
+    border-top: #008d36 solid 4px;
 }
 
 .head-nav-container-main {
@@ -114,7 +124,7 @@ li {
 
 a {
     text-decoration: none;
-    color: #666666;
+    color: #4f4f4f;
 }
 
 .head-nav-ul-left {
@@ -127,13 +137,13 @@ a {
 }
 
 .head-nav-ul-left>li:hover {
-    border-bottom: solid 1px #a2cd3f;
-    color: #a2cd3f;
+    /* border-bottom: solid 1px #a2cd3f; */
+    text-decoration: none;
+    color: #008d36;
 }
 
 .head-nav-ul-left>li>a:hover {
-    background-color: #ededeef0;
-    color: #a2cd3f;
+    color: #008d36;
 }
 
 .head-nav-ul-right {
@@ -146,14 +156,14 @@ a {
 }
 
 .head-nav-ul-right>li:hover {
-    border-bottom: solid 1px #a2cd3f;
+    border-bottom: solid 1px #008d36;
     background-color: #ededeef0;
-    color: #a2cd3f;
+    color: #008d36;
 }
 
 .head-nav-ul-right>li>a:hover {
     background-color: #ededeef0;
-    color: #a2cd3f;
+    color: #008d36;
 }
 
 .Scenarios-box {
@@ -166,14 +176,14 @@ a {
 }
 
 .Scenarios-box li:hover {
-    border-top: solid 1px #a2cd3f;
-    border-bottom: solid 1px #a2cd3f;
+    border-top: solid 1px #008d36;
+    border-bottom: solid 1px #008d36;
 }
 
 .Scenarios-box li:hover,
 .Scenarios-box li a:hover {
     background-color: #ededeef0;
-    color: #a2cd3f;
+    color: #008d36;
 }
 
 .Scenarios-box li {
@@ -190,13 +200,13 @@ a {
 }
 
 .card-header {
-    color: #303659;
+    color: #4f4f4f;
     font-weight: bolder;
     background-color: transparent;
 }
 
 .head-nav-ul-right .Scenarios>img:hover {
-    border-bottom: 1px solid #a2cd3f;
+    border-bottom: 1px solid #008d36;
 }
 
 .foot-nav-container-main-footer {
@@ -211,14 +221,14 @@ a {
 
 .foot-nav-container-main-footer .foot-nav-ul li {
     display: inline-block;
-    border-right: #666666 solid 1px;
+    border-right: #4f4f4f solid 1px;
     padding: 0 30px;
 }
 
 .foot-nav-container-main-footer .foot-nav-ul li a {
-    color: #666666;
+    color: #4f4f4f;
 }
 
 .foot-nav-container-main-footer .foot-nav-ul li:hover a {
-    color: #a2cd3f;
+    color: #008d36;
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../bootstrap-master/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>2a Short url service</title>
 </head>
 
@@ -25,7 +25,10 @@
                 Shorten URL
             </span>
         </div>
-        <input type=url class="form-control" value="https://www.2a.nz/x5tc8">
+        <input type=url id="shorturl" class="form-control" value="https://www.2a.nz/x5tc8">
+        <button style="font-size:16px" class="btnCopy" data-clipboard-action="copy" data-clipboard-target="#shorturl">
+            <!-- <i class="fa fa-copy"></i> -->
+        </button>
     </div>
     <hr>
     <p class="text-center">Quick Acess QR Code</p>
@@ -36,13 +39,14 @@
             <a class="btn btn-primary btn-block">Generating More</a>
         </div>
         <div class="col-md-6">
-            <a class="btn btn-primary btn-block">View Report</a>
+            <a class="btn btn-primary btn-block">Viewing Report</a>
         </div>
     </div>
 </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/clipboard.js/2.0.6/clipboard.min.js"></script> -->
 <script>
     $(document).ready(function() {
         // <!--set qrcode width and height-- >
@@ -54,7 +58,20 @@
         })
     });
 </script>
+<script src="https://cdn.bootcss.com/clipboard.js/2.0.6/clipboard.min.js">
+    // var clipb = new Clipboard('.btnCopy', {
+    //     target: function() {
+    //         return document.querySelector("#shorturl")
+    //     }
+    // });
 
+    // clipb.on('success', function(e) {
+    //     console.log(e);
+    // });
+    // clipb.on('error', function(e) {
+    //     console.log(e);
+    // });
+</script>
 
 
 </html>
