@@ -4,4 +4,7 @@ from tornado.web import RequestHandler as requesthandler #import RequestHandler 
 #Overview handler, rendering html pages
 class overviewHandler(requesthandler):
     def get(self):
-        self.render("overview.html")
+        data = dict(
+            cardTitle="This is overview page"
+        )
+        self.render("overview.html", data=data)

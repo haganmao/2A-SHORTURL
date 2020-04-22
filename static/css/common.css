@@ -65,11 +65,13 @@ li {
 .btnS:after {
     content: "";
     position: absolute;
-    padding-top: 300%;
+    padding-top: 350%;
     padding-left: 350%;
     margin-left: -100%!important;
-    opacity: 0;
-    transition: all 5s
+    /* margin-top: -100%!important;
+    margin-bottom: -100%!important; */
+    opacity: 1;
+    transition: all 3s
 }
 
 .btnS:active:after {
@@ -231,4 +233,17 @@ a {
 
 .foot-nav-container-main-footer .foot-nav-ul li:hover a {
     color: #008d36;
+}
+
+.toast-top-center {
+    width: 38px;
+    height: 50%;
+}
+
+.pagerwrapper {
+    text-align: center;
+}
+
+.pagerwrapper .pager-ul li {
+    display: inline-block;
 }
