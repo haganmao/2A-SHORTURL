@@ -6,6 +6,7 @@ idna==2.9
 kiwisolver==1.1.0
 matplotlib==3.2.0
 mysql-connector-python==8.0.19
+PyMySQL==0.9.3
 numpy==1.18.1
 protobuf==3.6.1
 pyparsing==2.4.6
@@ -17,3 +18,4 @@ tornado==6.0.3
 urllib3==1.25.8
 Werkzeug==1.0.0
 WTForms==2.2.1
+

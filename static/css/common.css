@@ -22,22 +22,30 @@ Hex - #4f4f4f
 /* initial project css style */
 
 body,
-div,
-ul,
-li {
+div {
     margin: 0;
     padding: 0;
+    min-width: fit-content;
     font-family: 'Times New Roman', Times, serif;
 }
 
 ul,
 li {
+    margin: 0;
+    padding: 0;
     list-style: none;
+}
+
+.container .container-content {
+    margin: 0;
+    padding: 0;
+    min-width: fit-content;
 }
 
 .card {
     border: 1px groove #008d36;
     border-radius: 5px;
+    max-width: 100%;
     box-shadow: 0 10px 15px 0 #008d36, 0 5px 20px 0 #008d36;
 }
 
@@ -60,6 +68,7 @@ li {
     text-align: center;
     overflow: hidden;
     cursor: pointer;
+    min-width: fit-content;
 }
 
 .btnS:after {
@@ -84,6 +93,7 @@ li {
 
 #btn-reset {
     width: 10%;
+    min-width: fit-content;
     background-color: #4f4f4f;
     border: 1px solid #4f4f4f;
     color: #FFFFFF;
@@ -109,6 +119,7 @@ li {
 
 .head-nav-container {
     height: 40px;
+    width: 100%;
     line-height: 40px;
     border-top: #008d36 solid 4px;
 }
@@ -214,6 +225,8 @@ a {
 .foot-nav-container-main-footer {
     width: 1280px;
     margin: 0 auto;
+    padding: 0;
+    max-width: 100%;
 }
 
 .foot-nav-container-main-footer {
