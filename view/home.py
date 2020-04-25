@@ -1,9 +1,9 @@
-import template
+
 from tornado.web import RequestHandler as requesthandler
 
 
 
-#Home handler, rendering html pages
+#Home handler
 class HomeHandler(requesthandler):
      def get (self):
          data = dict(

@@ -2,9 +2,9 @@ import tornado.web
 import config
 
 from view.home import HomeHandler as home
-# from view.index import JsonHandler as json
 from view.overview import overviewHandler as overview 
 from view.staticurl import staticurlHandler as staticurl 
+from view.error404 import ErrorHandler as error
 
 
 #router setup
@@ -13,6 +13,7 @@ class Application(tornado.web.Application):
         handlers = [
             (r"/", home),      
             (r"/overview",overview),
-            (r"/static", staticurl)
+            (r"/static", staticurl),
+            (r"/.*",error)
         ]
         super(Application,self).__init__(handlers,**config.settings)

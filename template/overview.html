@@ -2,7 +2,7 @@
 <div class="input-group mb-3">
     <div class="input-group-prepend">
         <span class="input-group-text">
-                Original Long URL
+                Long URL
             </span>
     </div>
     <input type=url class="form-control" value="https://www.youtube.com/watch?v=SMxx9XEF6m03d7ah1ds122dsajhjw98dqwjnvcsa9">
@@ -176,7 +176,8 @@
 </script>
 <script>
     toastr.options = {
-        "positionClass ": "toast-top-center "
+        "positionClass": "toast-top-center ",
+        "timeOut": "300"
     };
     var clipboard = new ClipboardJS('.btnCopy');
     clipboard.on('success', function(e) {
