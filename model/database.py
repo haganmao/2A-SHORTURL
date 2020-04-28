@@ -1,5 +1,3 @@
-# -*- coding:utf-8 -*-
-
 # using declarative_bas methond to create new data model
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -9,7 +7,6 @@ from sqlalchemy import Column, CHAR, VARCHAR, DATETIME, INT, BIGINT
 
 # import mysql engine connector
 from sqlalchemy import create_engine
-
 
 
 #define a new declarativeBase, all models should be inherited the declarative_base() class, the new table and mapper will be generated.

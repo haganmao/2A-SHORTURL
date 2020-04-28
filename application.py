@@ -7,7 +7,7 @@ from view.staticurl import staticurlHandler as staticurl
 from view.error404 import ErrorHandler as error
 
 
-#router setup
+#mapping between view and router 
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [

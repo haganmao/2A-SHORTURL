@@ -10,7 +10,7 @@ options = {
 }
 
 #set static path and template_path
-#default debug = false, whereas it should be switched to true in developing phase
+#default debug = false, whereas it should be switched to true in developing mode
 #set XSRF protection
 settings = {
     "debug" : True,
