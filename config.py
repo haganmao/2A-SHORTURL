@@ -11,7 +11,7 @@ options = {
 
 #set static path and template_path
 #default debug = false, whereas it should be switched to true in developing mode
-#set XSRF protection
+#set xsrf_cookies to True, starting the XSRF protection
 settings = {
     "debug" : True,
     "autoreload":True,
@@ -19,5 +19,5 @@ settings = {
     "cookie_secret":"586610e97b5142838e51ff6cd2cc73dc",
     "template_path" : os.path.join(path,"template"),
     "static_path" : os.path.join(path,"static"),
-    "model path" :os.path.join(path,"model")
+    "model_path" :os.path.join(path,"model")
 }

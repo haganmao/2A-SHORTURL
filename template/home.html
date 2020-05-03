@@ -1,9 +1,7 @@
 {% extends 'base.html' %}{% block nav %}
-
-
-<form class="form-content" action="">
+<form id="formdata" class="form-content urlform" action="">
     <div class="form-group">
-        <label for="longurl"></label>
+        <label for="longurl"></label> {% raw xsrf_form_html() %}
         <textarea class="form-control" name="longurl" type="url" id="longurl" rows="6" placeholder="Shorten your long link here!" spellcheck="false"></textarea>
         <br>
         <div class="expireTime">
@@ -24,6 +22,25 @@
                 <button type="reset" id="btn-reset">Clear</button>
             </div>
         </div>
+        <div id="valid_url"></div>
     </div>
 </form>
-{% end %}
+<script>
+    //jquery to create click event and ajax submit the request
+    $(function name(params) {
+        $('#btn-short').click(function name(params) {
+            var formdata = $('#formdata').serializeArray();
+            // console.log(formdata);
+            $.ajax({
+                url: '/',
+                type: 'POST',
+                dataType: 'json',
+                data: formdata,
+                success: function(result) {
+                    console.log(result);
+                }
+            })
+        });
+    });
+</script>
+{% end %} {% block foot %} {% end %}

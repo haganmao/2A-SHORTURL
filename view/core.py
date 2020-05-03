@@ -3,9 +3,13 @@ import tornado.web
 
 
 from tornado.web import RequestHandler as requesthandler
+from wtforms import Form, StringField
+from wtforms.validators import DataRequired, URL
+from werkzeug.datastructures import MultiDict
 
+# core Handler
+class coreHandler(requesthandler):
 
-class codemapHandler(requesthandler):
     # get the shortcode from codemap
     def getCode(self, originalUrl):
         # shortCode1 = (
@@ -33,6 +37,7 @@ class codemapHandler(requesthandler):
             shortCode.append(chr(code))
         shortCode = tuple(shortCode)
         # return shortCode, len(shortCode)
+
         # get the md5 str for originalurl
         originalMd5 = self.getMd5(originalUrl)
 
@@ -42,11 +47,12 @@ class codemapHandler(requesthandler):
         for i in range(0, 4):
             p = int(originalMd5[i * 8:(i + 1) * 8], 16)
             shortCodeList = []
+            # for loop 5 times to get each option of shortCodeList
             for j in range(0, 5):
                 k = 0x00000036 & p
                 shortCodeList.insert(0, shortCode[k][::-1])
                 p = p >> 6
-                print(shortCode[k])
+                # print(shortCode[k])
             code.append(''.join(shortCodeList))
         return code
 
@@ -56,15 +62,37 @@ class codemapHandler(requesthandler):
         # p3 = int(originalMd5[3*8:(3+1)*8],16)
         # return p0,p1,p2,p3
 
-    #get md5 for long url
+    # get md5 for long url
     def getMd5(self, originalUrl):
         hl = hashlib.md5()
         hl.update(originalUrl.encode(encoding='utf-8'))
         return hl.hexdigest()
         # return hl.hexdigest(), len(hl.hexdigest())
 
-
     def get(self):
         # self.write(str(self.getMd5("http://www.google.com")))
         # self.write("##############################################")
-        self.write("" + str(self.getCode("http://www.baidu.com")))
+        self.write("" + str(self.getCode("https://www.face.com/")))
+
+
+    # get form Params
+    @property
+    def urlFormParams(self):
+        data = self.request.arguments
+        data = {
+            v[0]: list(
+                map(
+                    lambda val:str(val, encoding="utf-8"),
+                    v[1]
+                )
+            )
+            for v in data.items()
+        }
+        return data
+        
+# form validator
+class urlForm(Form):
+    longurl = StringField("longurl", validators=[
+        DataRequired('URL is not nullable!Please enter a url..'),
+        URL(message="URL must be valid,plese enter 'http://.. or https://...'")
+    ])
