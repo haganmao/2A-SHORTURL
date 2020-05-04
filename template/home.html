@@ -1,6 +1,9 @@
 {% extends 'base.html' %}{% block nav %}
-<form id="formdata" class="form-content urlform" action="">
+<form id="formdata">
     <div class="form-group">
+        <center>
+            <div id="valid_url"></div>
+        </center>
         <label for="longurl"></label> {% raw xsrf_form_html() %}
         <textarea class="form-control" name="longurl" type="url" id="longurl" rows="6" placeholder="Shorten your long link here!" spellcheck="false"></textarea>
         <br>
@@ -22,22 +25,36 @@
                 <button type="reset" id="btn-reset">Clear</button>
             </div>
         </div>
-        <div id="valid_url"></div>
     </div>
 </form>
 <script>
     //jquery to create click event and ajax submit the request
-    $(function name(params) {
-        $('#btn-short').click(function name(params) {
-            var formdata = $('#formdata').serializeArray();
+    $(function() {
+        $('#btn-short').click(function() {
+            var formdata = $('#formdata').serialize();
             // console.log(formdata);
             $.ajax({
                 url: '/',
-                type: 'POST',
-                dataType: 'json',
+                type: "POST",
                 data: formdata,
+                dataType: "JSON",
                 success: function(result) {
-                    console.log(result);
+                    // console.log(result)
+                    if (result.res == 200) {
+                        //direct to overview page
+                    } else {
+                        var fs = ['url'];
+                        for (var v in fs) {
+                            if (typeof result[fs[v]] == 'undefined') {
+                                $('#valid_' + fs[v]).empty();
+                            } else {
+                                $('#valid_' + fs[v]).empty();
+                                $('#valid_' + fs[v]).append(
+                                    "<span class='text-danger'>" + result[fs[v]] + "</span>"
+                                );
+                            }
+                        }
+                    }
                 }
             })
         });

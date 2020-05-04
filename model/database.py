@@ -90,7 +90,9 @@ if __name__ == "__main__":
     
     #metadata mapping model to database
     declarativeBase.metadata.create_all(engine)
-    print("DB Created success!")
+    # print("DB Created success!")
+
+    
 
 
 

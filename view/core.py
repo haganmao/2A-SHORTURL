@@ -8,6 +8,8 @@ from wtforms.validators import DataRequired, URL
 from werkzeug.datastructures import MultiDict
 
 # core Handler
+
+
 class coreHandler(requesthandler):
 
     # get the shortcode from codemap
@@ -74,25 +76,30 @@ class coreHandler(requesthandler):
         # self.write("##############################################")
         self.write("" + str(self.getCode("https://www.face.com/")))
 
-
     # get form Params
     @property
-    def urlFormParams(self):
-        data = self.request.arguments
-        data = {
-            v[0]: list(
+    def getFormData(self):
+        formparams = self.request.arguments
+        formparams = {
+            item[0]:list(
                 map(
-                    lambda val:str(val, encoding="utf-8"),
-                    v[1]
+                    lambda params: str(params, encoding='utf-8'),
+                    item[1]
                 )
             )
-            for v in data.items()
+            for item in formparams.items()
         }
-        return data
-        
+        # print("#########################")
+        # print(formparams)
+        return formparams
+
+
 # form validator
 class urlForm(Form):
-    longurl = StringField("longurl", validators=[
-        DataRequired('URL is not nullable!Please enter a url..'),
-        URL(message="URL must be valid,plese enter 'http://.. or https://...'")
-    ])
+    url = StringField(
+        'url',
+        validators=[
+            DataRequired('url must be filled'),
+            URL(message='please must enter a valid url http://..or https://..')
+        ]
+    )

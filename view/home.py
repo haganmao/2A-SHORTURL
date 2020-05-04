@@ -1,7 +1,7 @@
 
 
 from view.core import coreHandler
-
+from view.core import urlForm,MultiDict
 
 
 
@@ -13,12 +13,15 @@ class HomeHandler(coreHandler):
         )
         self.render("home.html", data=data)
 
+    
     def post(self):
-        res = dict(code=0)
-        form = urlForm(MultiDict(self.urlFormParams))
-        if form.validate():
-            res["code"] = 1
+        result = dict(res=0)
+        urlform = urlForm(MultiDict(self.getFormData))
+        if urlform.validate():
+            result['res'] = 200
         else:
-            res = form.errors
-            res["code"] = 0
-        self.write(res)
+            result = urlform.errors
+            result['res'] = 0
+        self.write(result)
+
+  
