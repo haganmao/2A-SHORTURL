@@ -1,6 +1,6 @@
 import hashlib
 import tornado.web
-
+import datetime
 
 from tornado.web import RequestHandler as requesthandler
 from wtforms import Form, StringField
@@ -8,10 +8,7 @@ from wtforms.validators import DataRequired, URL
 from werkzeug.datastructures import MultiDict
 
 # core Handler
-
-
 class coreHandler(requesthandler):
-
     # get the shortcode from codemap
     def getCode(self, originalUrl):
         # shortCode1 = (
@@ -71,10 +68,10 @@ class coreHandler(requesthandler):
         return hl.hexdigest()
         # return hl.hexdigest(), len(hl.hexdigest())
 
-    def get(self):
+    # def get(self):
         # self.write(str(self.getMd5("http://www.google.com")))
         # self.write("##############################################")
-        self.write("" + str(self.getCode("https://www.face.com/")))
+        # self.write("" + str(self.getCode("https://www.face.com/")))
 
     # get form Params
     @property
@@ -89,17 +86,25 @@ class coreHandler(requesthandler):
             )
             for item in formparams.items()
         }
-        # print("#########################")
+        # print("xxxxxxxxxxxxxxxxxxxxxxxxxxx")
         # print(formparams)
         return formparams
+    
+    #get the new session
+    @property
+    def session(self):
+        return self.application.db
 
+    #get create time
+    def getCreateTime(self):
+        return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 # form validator
 class urlForm(Form):
     url = StringField(
         'url',
         validators=[
-            DataRequired('url must be filled'),
-            URL(message='please must enter a valid url http://..or https://..')
+            DataRequired('Please check your link and try again, url must be filled'),
+            URL(message='Unable to shorten that link. It is not a valid url, exp:http://..or https://..')
         ]
     )

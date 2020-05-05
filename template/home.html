@@ -1,16 +1,16 @@
 {% extends 'base.html' %}{% block nav %}
-<form id="formdata">
+<form id="formdata" action="/overview">
     <div class="form-group">
         <center>
             <div id="valid_url"></div>
         </center>
         <label for="longurl"></label> {% raw xsrf_form_html() %}
-        <textarea class="form-control" name="longurl" type="url" id="longurl" rows="6" placeholder="Shorten your long link here!" spellcheck="false"></textarea>
+        <textarea class="form-control" name="url" type="url" id="longurl" rows="6" placeholder="Shorten your long link here!" spellcheck="false"></textarea>
         <br>
         <div class="expireTime">
             <div class="form-check form-check-inline">
                 <label for="inlineRadio-oneday">1 day</label>
-                <input name="expireTime" id="inlineRadio-oneday" type="radio" value="1">
+                <input name="expireTime" id="inlineRadio-oneday" type="radio" value="1" checked>
             </div>
             <div class="form-check form-check-inline">
                 <label for="inlineRadio-oneweek">1 week</label>
@@ -39,14 +39,16 @@
                 data: formdata,
                 dataType: "JSON",
                 success: function(result) {
-                    // console.log(result)
-                    if (result.res == 200) {
+                    console.log(result)
+                    if (result.res == 1) {
                         //direct to overview page
+
                     } else {
                         var fs = ['url'];
                         for (var v in fs) {
+                            console.log("v:" + v);
                             if (typeof result[fs[v]] == 'undefined') {
-                                $('#valid_' + fs[v]).empty();
+                                $('#valid_' + fs[v]).empty(); //'#valid_url'
                             } else {
                                 $('#valid_' + fs[v]).empty();
                                 $('#valid_' + fs[v]).append(

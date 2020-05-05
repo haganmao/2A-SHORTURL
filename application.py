@@ -2,10 +2,9 @@ import tornado.web
 import config
 
 
-
 from view.home import HomeHandler as home
-from view.overview import overviewHandler as overview 
-from view.staticurl import staticurlHandler as staticurl 
+from view.overview import overviewHandler as overview
+from view.staticurl import staticurlHandler as staticurl
 from view.error404 import ErrorHandler as error
 from view.core import coreHandler as core
 from sqlalchemy import create_engine
@@ -13,18 +12,20 @@ from config import mysql_db
 from sqlalchemy.orm import sessionmaker
 
 
-#mapping between view and router 
+# mapping between view and router
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", home),
             (r"/codemap", core),
-            (r"/overview",overview),
+            (r"/overview", overview),
             (r"/static", staticurl),
-            (r"/.*",error)
+            (r"/.*", error)
         ]
-        super(Application,self).__init__(handlers,**config.settings)
-    
+        self.db = self.createDBSession
+        super(Application, self).__init__(handlers, **config.settings)
+
+    # create new session
     @property
     def createDBSession(self):
         # create an new engine for connecting to shorturl_2A, and formatting the connector url
@@ -34,17 +35,20 @@ class Application(tornado.web.Application):
             mysql_db["host"],
             mysql_db["port"],
             mysql_db["dbname"]
-            ),  
-            #echo set to true, print the create processing
-            echo =True,
+        ),
+            # echo set to true, print the create processing
+            echo=True,
             encoding="utf-8",
-            pool_size=0
+            pool_size=0,
+            # connect_args={"charset": 'utf-8'}
         )
 
+        # bind engine
         dbSession = sessionmaker(
             bind=engine,
             autoflush=True,
             autocommit=False,
-            expire_on_commit=True
+            expire_on_commit=False
         )
+        #return an new dbsession with parameters
         return dbSession()
