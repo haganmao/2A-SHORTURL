@@ -3,9 +3,9 @@ import tornado.web
 import datetime
 
 from tornado.web import RequestHandler as requesthandler
-from wtforms import Form, StringField
-from wtforms.validators import DataRequired, URL
-from werkzeug.datastructures import MultiDict
+
+
+
 
 # core Handler
 class coreHandler(requesthandler):
@@ -86,25 +86,18 @@ class coreHandler(requesthandler):
             )
             for item in formparams.items()
         }
-        # print("xxxxxxxxxxxxxxxxxxxxxxxxxxx")
-        # print(formparams)
+        print("xxxxxxxxxxxxxxxxxxxxxxxxxxx")
+        print(formparams)
         return formparams
     
-    #get the new session
+    # get the new session
     @property
     def session(self):
         return self.application.db
 
+    
     #get create time
     def getCreateTime(self):
         return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-# form validator
-class urlForm(Form):
-    url = StringField(
-        'url',
-        validators=[
-            DataRequired('Please check your link and try again, url must be filled'),
-            URL(message='Unable to shorten that link. It is not a valid url, exp:http://..or https://..')
-        ]
-    )
+

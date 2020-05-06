@@ -83,8 +83,8 @@ if __name__ == "__main__":
         ),
         
         #echo set to true, print the create processing
-        echo =True,
-        encoding="utf-8"
+        encoding="utf-8",
+        echo=True
     )
 
     

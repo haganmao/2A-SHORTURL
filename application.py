@@ -1,5 +1,6 @@
 import tornado.web
 import config
+import pymysql
 
 
 from view.home import HomeHandler as home
@@ -25,6 +26,7 @@ class Application(tornado.web.Application):
         self.db = self.createDBSession
         super(Application, self).__init__(handlers, **config.settings)
 
+   
     # create new session
     @property
     def createDBSession(self):
@@ -37,10 +39,11 @@ class Application(tornado.web.Application):
             mysql_db["dbname"]
         ),
             # echo set to true, print the create processing
-            echo=True,
             encoding="utf-8",
-            pool_size=0,
-            # connect_args={"charset": 'utf-8'}
+            echo=True,
+            pool_size=100,
+            pool_recycle=10,
+            connect_args={"charset": 'utf8'}
         )
 
         # bind engine

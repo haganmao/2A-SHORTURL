@@ -1,9 +1,21 @@
-
 import uuid
+
 from view.core import coreHandler
-from view.core import urlForm,MultiDict
+from werkzeug.datastructures import MultiDict
+from wtforms import Form, StringField
+from wtforms.validators import DataRequired, URL
 from model.database import ShortUrlInfo
 
+# form validator
+class urlForm(Form):
+    url = StringField(
+        'url',
+        validators=[
+            DataRequired(
+                'Please check your link and try again, url must be filled'),
+            URL(message='Unable to shorten that link. It is not a valid url, exp:http://..or https://..')
+        ]
+    )
 
 # Home handler
 class HomeHandler(coreHandler):
@@ -13,42 +25,39 @@ class HomeHandler(coreHandler):
         )
         self.render("home.html", data=data)
 
-    
     def post(self):
-        #status code 1:success 0:fail
+        # status code 1:success 0:fail
         result = dict(res=0)
-        formData = self.getFormData
-        urlform = urlForm(MultiDict(formData))
-        print("#################")
-        print(formData['url'])
+        urlform = urlForm(MultiDict(self.getFormData))
+        # print("************************************************")
+        # print(urlform.data["url"])
+
         if urlform.validate():
-            #check the original_url is exist on database or not, if not save the data to database
+            # check the original_url is exist on database or not, if not save the data to database
+            print(self.session)
+            # print("###############")
             try:
-                print("#@###################")
-                print(formData['url'][0])
                 long_url = self.session.query(ShortUrlInfo).filter_by(
-                    original_url = formData['url'][0]
+                    original_url=urlform.data['url']
                 ).first()
-                
+                print(long_url)
+                # print("###############1")
+                uu_id = uuid.uuid4().hex
+                short_code = self.getCode(urlform.data['url'])[0]
                 if not long_url:
-                    print("ppppp")
-                    uuid = uuid.uuid4().hex
-                    print("xxxxxxxxx")
                     shorturlinfo = ShortUrlInfo(
-                       original_url = formData['url'][0],
-                       short_code = self.getCode(formData['url'][0])[0],
-                       uuid = uuid,
-                       create_time = self.getCreateTime()
+                        original_url=urlform.data['url'],
+                        short_code=short_code,
+                        uuid=uu_id,
+                        create_time=self.getCreateTime()
                     )
-                    print("#########################")
-                    print(shorturlinfo)
+                    # print("#################2")
                     self.session.add(shorturlinfo)
                 else:
-                    print("nnnnnnnnnnn")
-                    uuid = long_url.uuid
+                    uu_id = long_url.uuid
                 result['res'] = 1
-                result['uuid'] = uuid
-            except Exception as exception:
+                result['uuid'] = uu_id
+            except Exception as e:
                 self.session.rollback()
             else:
                 self.session.commit()
@@ -58,5 +67,3 @@ class HomeHandler(coreHandler):
             result = urlform.errors
             result['res'] = 0
         self.write(result)
-
-  
