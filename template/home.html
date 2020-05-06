@@ -27,32 +27,35 @@
         </div>
     </div>
 </form>
+
 <script>
     //jquery to create click event and ajax submit the request
     $(function() {
         $('#btn-short').click(function() {
-            var formdata = $('#formdata').serialize();
-            // console.log(formdata);
+            var formdata = $('#formdata').serializeArray();
+            console.log(formdata);
+            console.log(formdata[1].value);
             $.ajax({
                 url: '/',
                 type: "POST",
                 data: formdata,
                 dataType: "JSON",
                 success: function(result) {
-                    console.log(result)
-                    if (result.res == 1) {
+                    // console.log(result)
+                    if (result.statuscode == 200) {
                         //direct to overview page
-
+                        location.href = "/overview";
                     } else {
                         var fs = ['url'];
+                        //get error message
                         for (var v in fs) {
-                            console.log("v:" + v);
                             if (typeof result[fs[v]] == 'undefined') {
                                 $('#valid_' + fs[v]).empty(); //'#valid_url'
                             } else {
                                 $('#valid_' + fs[v]).empty();
                                 $('#valid_' + fs[v]).append(
-                                    "<span class='text-danger'>" + result[fs[v]] + "</span>"
+                                    "<span class='text-danger'>" + formdata[1].value + ' ' + "</span>",
+                                    "<span class='text-danger'>" + result[fs[v]] + "</span >"
                                 );
                             }
                         }

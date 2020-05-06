@@ -1,21 +1,8 @@
 import uuid
 
-from view.core import coreHandler
-from werkzeug.datastructures import MultiDict
-from wtforms import Form, StringField
-from wtforms.validators import DataRequired, URL
+from view.core import coreHandler,urlForm
 from model.database import ShortUrlInfo
-
-# form validator
-class urlForm(Form):
-    url = StringField(
-        'url',
-        validators=[
-            DataRequired(
-                'Please check your link and try again, url must be filled'),
-            URL(message='Unable to shorten that link. It is not a valid url, exp:http://..or https://..')
-        ]
-    )
+from werkzeug.datastructures import MultiDict
 
 # Home handler
 class HomeHandler(coreHandler):
@@ -26,8 +13,8 @@ class HomeHandler(coreHandler):
         self.render("home.html", data=data)
 
     def post(self):
-        # status code 1:success 0:fail
-        result = dict(res=0)
+        # status code 200:success 500:fail
+        result = dict(statuscode=500)
         urlform = urlForm(MultiDict(self.getFormData))
         # print("************************************************")
         # print(urlform.data["url"])
@@ -49,14 +36,17 @@ class HomeHandler(coreHandler):
                         original_url=urlform.data['url'],
                         short_code=short_code,
                         uuid=uu_id,
-                        create_time=self.getCreateTime()
+                        create_time=self.getCreateTime
                     )
                     # print("#################2")
                     self.session.add(shorturlinfo)
                 else:
                     uu_id = long_url.uuid
-                result['res'] = 1
+                result['statuscode'] = 200
                 result['uuid'] = uu_id
+                # r=result['uuid']
+                # print("#################1")
+                # print(r)
             except Exception as e:
                 self.session.rollback()
             else:
@@ -65,5 +55,5 @@ class HomeHandler(coreHandler):
                 self.session.close()
         else:
             result = urlform.errors
-            result['res'] = 0
+            result['statuscode'] = 500
         self.write(result)
