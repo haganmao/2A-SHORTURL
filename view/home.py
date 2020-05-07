@@ -24,10 +24,11 @@ class HomeHandler(coreHandler):
             print(self.session)
             # print("###############")
             try:
+                #get the object from table
                 long_url = self.session.query(ShortUrlInfo).filter_by(
                     original_url=urlform.data['url']
                 ).first()
-                print(long_url)
+                # print(long_url)
                 # print("###############1")
                 uu_id = uuid.uuid4().hex
                 short_code = self.getCode(urlform.data['url'])[0]
@@ -45,8 +46,8 @@ class HomeHandler(coreHandler):
                 result['statuscode'] = 200
                 result['uuid'] = uu_id
                 # r=result['uuid']
-                # print("#################1")
-                # print(r)
+                print("#################1")
+                print(result)
             except Exception as e:
                 self.session.rollback()
             else:

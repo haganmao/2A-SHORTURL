@@ -63,29 +63,31 @@
         </div>
     </div>
     <!-- head nav end -->
+
+    <div class="biglogo">
+        <iframe src="../static/images/2a.nz.svg" class="big_logo" frameborder="0"></iframe>
+    </div>
+
+    <!-- card start -->
     <div class="container margintop">
-        <div class="container-content col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <center>
-                        {{data["cardTitle"]}}
-                    </center>
-                </div>
-                <div class="card-body">
-                    {% block nav %} {% end %}
+        <center>
+            <div class="container-content col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <center>
+                            {{data["cardTitle"]}}
+                        </center>
+                    </div>
+                    <div class="card-body">
+                        {% block nav %} {% end %}
+                    </div>
                 </div>
             </div>
-        </div>
+        </center>
     </div>
+    <!-- card end -->
     <br>
     <br>
-    <center>
-        <div class="biglogo">
-            <a>
-                <iframe src="../static/images/2a.nz.svg" frameborder="0" style=" line-height: 720px;height:360px;"></iframe>
-            </a>
-        </div>
-    </center>
     <br>
     <br>
     <br>

@@ -25,7 +25,7 @@ body,
 div {
     margin: 0;
     padding: 0;
-    min-width: fit-content;
+    min-width: min-content;
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -39,14 +39,25 @@ li {
 .container .container-content {
     margin: 0;
     padding: 0;
-    min-width: fit-content;
+    width: 60%;
+}
+
+.biglogo {
+    margin-top: 60px;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+iframe {
+    margin: 0 auto;
 }
 
 .card {
-    border: 1px groove #008d36;
+    border: none;
     border-radius: 5px;
     max-width: 100%;
-    box-shadow: 0 10px 15px 0 #008d36, 0 5px 20px 0 #008d36;
+    /* box-shadow: 0 10px 15px 0 #008d36, 0 5px 20px 0 #008d36; */
 }
 
 .button {
@@ -216,6 +227,7 @@ a {
     color: #4f4f4f;
     font-weight: bolder;
     background-color: transparent;
+    border: none;
 }
 
 .head-nav-ul-right .Scenarios>img:hover {

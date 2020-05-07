@@ -18,8 +18,8 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", home),
-            (r"/codemap", core),
             (r"/overview", overview),
+            (r"/codemap", core),
             (r"/static", staticurl),
             (r"/.*", error)
         ]

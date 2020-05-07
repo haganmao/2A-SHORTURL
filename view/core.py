@@ -87,8 +87,8 @@ class coreHandler(requesthandler):
             )
             for item in formparams.items()
         }
-        # print("xxxxxxxxxxxxxxxxxxxxxxxxxxx")
-        # print(formparams)
+        print("xxxxxxxxxxxxxxxxxxxxxxxxxxxpa")
+        print(formparams)
         return formparams
     
     # get the new session
@@ -101,6 +101,12 @@ class coreHandler(requesthandler):
     #get create time
     def getCreateTime(self):
         return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    @property
+    #get server ip address
+    def gerIP(self):
+        return "http://127.0.0.1:8080/"
+
 
 # form validator
 class urlForm(Form):
