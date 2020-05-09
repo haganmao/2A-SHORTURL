@@ -10,17 +10,17 @@ class overviewHandler(coreHandler):
         data = dict(
             cardTitle="DO YOU KNOW RESULT?"
         )
-        print("###############################1")
+        # print("###############################1")
         uu_id = self.get_argument('uuid', None)
-        print(uu_id)
-        print("###############################")
+        # print(uu_id)
+        # print("###############################")
         if uu_id:
             try:
                 uuid = self.session.query(ShortUrlInfo).filter_by(
                     uuid=uu_id
                 ).first()
                 data['uuid'] = uuid
-                print('###############################2')
+                # print('###############################2')
             except Exception as exception:
                 self.session.rollback()
             else:

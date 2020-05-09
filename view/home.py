@@ -24,7 +24,7 @@ class HomeHandler(coreHandler):
             print(self.session)
             # print("###############")
             try:
-                #get the object from table
+                ##get the object from db, sqlachemy
                 long_url = self.session.query(ShortUrlInfo).filter_by(
                     original_url=urlform.data['url']
                 ).first()
@@ -32,6 +32,7 @@ class HomeHandler(coreHandler):
                 # print("###############1")
                 uu_id = uuid.uuid4().hex
                 short_code = self.getCode(urlform.data['url'])[0]
+                #if not exist, write data to database
                 if not long_url:
                     shorturlinfo = ShortUrlInfo(
                         original_url=urlform.data['url'],
@@ -39,7 +40,8 @@ class HomeHandler(coreHandler):
                         uuid=uu_id,
                         create_time=self.getCreateTime
                     )
-                    # print("#################2")
+                    # print("#################shorturlinfo")
+                    # print(shorturlinfo.original_url)
                     self.session.add(shorturlinfo)
                 else:
                     uu_id = long_url.uuid
@@ -48,7 +50,7 @@ class HomeHandler(coreHandler):
                 # r=result['uuid']
                 print("#################1")
                 print(result)
-            except Exception as e:
+            except Exception as exception:
                 self.session.rollback()
             else:
                 self.session.commit()

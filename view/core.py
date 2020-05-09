@@ -1,10 +1,13 @@
 import hashlib
 import tornado.web
 import datetime
+import os
+
 
 from tornado.web import RequestHandler as requesthandler
 from wtforms import Form, StringField
 from wtforms.validators import DataRequired, URL
+
 
 
 
@@ -96,7 +99,7 @@ class coreHandler(requesthandler):
     def session(self):
         return self.application.db
 
-    #get the current time
+    
     @property
     #get create time
     def getCreateTime(self):
@@ -107,6 +110,7 @@ class coreHandler(requesthandler):
     def gerIP(self):
         return "http://127.0.0.1:8080/"
 
+     
 
 # form validator
 class urlForm(Form):

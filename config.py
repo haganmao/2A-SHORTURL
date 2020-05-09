@@ -19,7 +19,8 @@ settings = {
     "cookie_secret": "586610e97b5142838e51ff6cd2cc73dc",
     "template_path": os.path.join(path, "template"),
     "static_path": os.path.join(path, "static"),
-    "model_path": os.path.join(path, "model")
+    "model_path": os.path.join(path, "model"),
+    "ip2Region_DB_path":os.path.join(path,"ip2Region/ip2region.db")
 }
 
 # define mysql_db config

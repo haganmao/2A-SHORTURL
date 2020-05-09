@@ -8,6 +8,7 @@ from view.overview import overviewHandler as overview
 from view.staticurl import staticurlHandler as staticurl
 from view.error404 import ErrorHandler as error
 from view.core import coreHandler as core
+from view.redirect import redirectHandler as redirect
 from sqlalchemy import create_engine
 from config import mysql_db
 from sqlalchemy.orm import sessionmaker
@@ -19,8 +20,9 @@ class Application(tornado.web.Application):
         handlers = [
             (r"/", home),
             (r"/overview", overview),
-            (r"/codemap", core),
-            (r"/static", staticurl),
+            (r"/([a-zA-Z0-9]{5})", redirect),
+            # (r"/codemap", core),
+            # (r"/static", staticurl),
             (r"/.*", error)
         ]
         self.db = self.createDBSession
