@@ -50,13 +50,14 @@ li {
 }
 
 iframe {
+    width: fit-content;
     margin: 0 auto;
 }
 
 .card {
     border: none;
     border-radius: 5px;
-    max-width: 100%;
+    min-width: fit-content;
     /* box-shadow: 0 10px 15px 0 #008d36, 0 5px 20px 0 #008d36; */
 }
 
