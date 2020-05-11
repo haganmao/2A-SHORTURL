@@ -56,9 +56,9 @@ class ShorturlOverview(declarativeBase):
     id = Column(BIGINT, primary_key=True)
     short_url_id = Column(BIGINT, nullable=False)
     short_url = Column(VARCHAR(768), nullable=False)
-    short_url_requestIP = Column(CHAR(32))
-    short_url_requestLocation = Column(CHAR(32))
-    short_url_requestMethod = Column(CHAR(10), nullable=False)
+    short_url_requestIP = Column(VARCHAR(128))
+    short_url_requestLocation = Column(VARCHAR(300))
+    short_url_requestMethod = Column(VARCHAR(30), nullable=False)
     short_url_createTime = Column(DATETIME, nullable=False)
 
 

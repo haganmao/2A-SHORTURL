@@ -20,8 +20,11 @@ settings = {
     "template_path": os.path.join(path, "template"),
     "static_path": os.path.join(path, "static"),
     "model_path": os.path.join(path, "model"),
-    "ip2Region_DB_path":os.path.join(path,"ip2Region/ip2region.db")
 }
+
+# print("##################")
+# print(settings['ip2Region_DB_path'])
+# print(settings['model_path'])
 
 # define mysql_db config
 mysql_db = dict(
