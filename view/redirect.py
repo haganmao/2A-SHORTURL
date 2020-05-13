@@ -13,7 +13,6 @@ class redirectHandler(coreHandler):
             # print(shortcode.id)
             # print(shortcode.original_url)
 
-            
             #save access record
             self.save_record(shortcode.id)
         except Exception as exception:
@@ -39,13 +38,13 @@ class redirectHandler(coreHandler):
                 short_url_createTime = self.getCreateTime
             )
             self.session.add(Shorturl_Overview)
-            print("######################10")
-            print(Shorturl_Overview.short_url_requestIP)
-            print(Shorturl_Overview.short_url)
-            print(Shorturl_Overview.short_url_id)
-            print(Shorturl_Overview.short_url_requestMethod)
-            print(Shorturl_Overview.short_url_requestLocation)
-            print(Shorturl_Overview.short_url_createTime)
+            # print("######################10")
+            # print(Shorturl_Overview.short_url_requestIP)
+            # print(Shorturl_Overview.short_url)
+            # print(Shorturl_Overview.short_url_id)
+            # print(Shorturl_Overview.short_url_requestMethod)
+            # print(Shorturl_Overview.short_url_requestLocation)
+            # print(Shorturl_Overview.short_url_createTime)
         except Exception as exception:
             self.session.rollback()
         else:

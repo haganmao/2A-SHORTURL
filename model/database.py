@@ -28,11 +28,11 @@ declarativeBase = declarative_base()
 class ShortUrlInfo(declarativeBase):
     __tablename__ = 'shorturlinfo'
     id = Column(BIGINT, primary_key=True)
-    original_url = Column(VARCHAR(768), unique=True, nullable=False)
+    original_url = Column(VARCHAR(768), unique=False, nullable=False)
     short_code = Column(CHAR(6), unique=True, nullable=False)
     uuid = Column(CHAR(32), unique=True, nullable=False)
     create_time = Column(DATETIME, nullable=False)
-
+#awV1H
 
 # access the new table name and mapper
 # print("#######################")
@@ -60,7 +60,8 @@ class ShorturlOverview(declarativeBase):
     short_url_requestLocation = Column(VARCHAR(300))
     short_url_requestMethod = Column(VARCHAR(30), nullable=False)
     short_url_createTime = Column(DATETIME, nullable=False)
-
+    # short_url_access_deviceType = Column(CHAR(10),nullable=False)
+    # short_url_access_connectType = Column(CHAR(10),nullable=False)
 
 if __name__ == "__main__":
     # define mysql_db config
@@ -71,7 +72,6 @@ if __name__ == "__main__":
         admin="root",
         password="root"
     )
-
 
     # create an new engine for connecting to shorturl_2A, and formatting the connector url
     engine = create_engine('mysql+pymysql://{0}:{1}@{2}:{3}/{4}'.format(

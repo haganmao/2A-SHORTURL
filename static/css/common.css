@@ -266,12 +266,17 @@ a {
     height: 50%;
 }
 
-.pagerwrapper {
+
+/* .pagerwrapper {
     text-align: center;
 }
 
 .pagerwrapper .pager-ul li {
     display: inline-block;
+} */
+
+#get_more {
+    background-color: #008d36;
 }
 
 .midbox {

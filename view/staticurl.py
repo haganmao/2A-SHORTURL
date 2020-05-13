@@ -1,11 +1,28 @@
 
-from tornado.web import RequestHandler as requesthandler
+from view.core import coreHandler
+from pyecharts.charts import Bar, Pie, Calendar, Map
+from pyecharts import options as opts
 
 
-#staticurl handler
-class staticurlHandler(requesthandler):
+# staticurl handler
+class staticurlHandler(coreHandler):
     def get(self):
-        data=dict(
+        data = dict(
             cardTitle="See the world with Statistic url"
         )
-        self.render("staticurl.html",data=data)
+
+
+        # get headers info exp client devece info,broswer
+        header = self.request.headers
+        # if exists
+        if header:
+            print("#######################")
+            print(header)
+
+        else:
+            print('no header info')
+
+
+    
+        self.render("staticurl.html", data=data)
+        

@@ -12,7 +12,7 @@ from view.redirect import redirectHandler as redirect
 from sqlalchemy import create_engine
 from config import mysql_db
 from sqlalchemy.orm import sessionmaker
-
+from view.getMd5test import testHandler as test
 
 # mapping between view and router
 class Application(tornado.web.Application):
@@ -21,8 +21,9 @@ class Application(tornado.web.Application):
             (r"/", home),
             (r"/overview", overview),
             (r"/([a-zA-Z0-9]{5})", redirect),
+            (r"/test",test),
             # (r"/codemap", core),
-            # (r"/static", staticurl),
+            (r"/static", staticurl),
             (r"/.*", error)
         ]
         self.db = self.createDBSession

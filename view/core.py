@@ -72,10 +72,12 @@ class coreHandler(requesthandler):
         return hl.hexdigest()
         # return hl.hexdigest(), len(hl.hexdigest())
 
-    # def get(self):
-        # self.write(str(self.getMd5("http://www.google.com")))
-        # self.write("##############################################")
-        # self.write("" + str(self.getCode("https://www.face.com/")))
+
+    #get current datetime 
+    def getDay(self, day=0):
+        return (datetime.datetime.now() + datetime.timedelta(days=day)).strftime("%Y-%m-%d")
+
+
 
     # get form Params
     @property
