@@ -32,7 +32,7 @@ class ShortUrlInfo(declarativeBase):
     short_code = Column(CHAR(6), unique=True, nullable=False)
     uuid = Column(CHAR(32), unique=True, nullable=False)
     create_time = Column(DATETIME, nullable=False)
-#awV1H
+
 
 # access the new table name and mapper
 # print("#######################")
@@ -49,6 +49,10 @@ class ShortUrlInfo(declarativeBase):
 # 5.short_url_requestLocation: CHAR
 # 6.short_url_requestMethod: CHAR,NOTNULL
 # 7.short_url_createTime: DATETIME,NOTNULL
+# 8.short_url_access_osType:CHAR,NOTNULL
+# 9.short_url_access_osName:CHAR,NOTNULL
+# 10.short_url_access_agent_name:CHAR,NOTNULL
+# 11.short_url_access_connectType:CHAR,NOTNULL
 # """
 
 class ShorturlOverview(declarativeBase):
@@ -60,8 +64,11 @@ class ShorturlOverview(declarativeBase):
     short_url_requestLocation = Column(VARCHAR(300))
     short_url_requestMethod = Column(VARCHAR(30), nullable=False)
     short_url_createTime = Column(DATETIME, nullable=False)
-    # short_url_access_deviceType = Column(CHAR(10),nullable=False)
-    # short_url_access_connectType = Column(CHAR(10),nullable=False)
+    short_url_access_osType = Column(VARCHAR(30))
+    short_url_access_osName = Column(VARCHAR(30))
+    short_url_access_agent_name = Column(VARCHAR(30))
+    short_url_access_connectType = Column(VARCHAR(30))
+    short_url_requesCountry = Column(VARCHAR(45))
 
 if __name__ == "__main__":
     # define mysql_db config
@@ -90,7 +97,7 @@ if __name__ == "__main__":
     
     #metadata mapping model to database
     declarativeBase.metadata.create_all(engine)
-    # print("DB Created success!")
+    print("DB Created success!")
 
     
 

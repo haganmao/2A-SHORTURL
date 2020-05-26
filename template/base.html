@@ -17,79 +17,77 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon-16x16.png">
     <link rel="manifest" href="../static/images/site.webmanifest">
     <link rel="mask-icon" href="../static/images/safari-pinned-tab.svg" color="#008d36">
-    <script src=" https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js "></script>
-    <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js "></script>
     <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js "></script>
+    <script src=" https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js "></script>
     <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js "></script>
+    <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js "></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <!-- head nav start -->
     <div class="head-nav-container">
         <div class="head-nav-container-main">
-            <!-- nav left start -->
-            <ul class="head-nav-ul-left">
-                <li>
-                    <!-- <a href="/">
-                        <img style="height:38px;line-height: 38px; margin-top: -4px;" src="../static/images/2a.nz.logo.PNG" alt="">
-                    <iframe src="../static/images/2a.nz.svg" frameborder="0" style=" line-height: 24px;height: 24px;"></iframe>
-                    </a> -->
-                </li>
-            </ul>
-
-            <!-- nav left end -->
-
-            <!-- nav right start -->
-            <ul class="head-nav-ul-right">
-                <li>
-                    <a href="/">Home</a></li>
-
-                <li class="Scenarios">
-                    <a href="#">Scenarios</a>
-                    <ul class="Scenarios-box">
-                        <li><a href="/static/Layouts/b2b.html">B2B</a></li>
-                        <li><a href="/static/Layouts/socialmedia.html">SocialMedia</a></li>
-                        <li><a href="/static/Layouts/sms.html">SMS</a></li>
+            <nav class="navbar fixed-top navbar-expand-md navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-content">
+                    <ul class="navbar-nav head-nav-ul-right ml-auto">
+                        <li class="nav-item"><a href="/">Home</a></li>
+                        <li class="nav-item"><a href="#">Guide</a></li>
+                        <li class="nav-item"><a href="/contact">Contact</a></li>
+                        <li class="nav-item Scenarios">
+                            <a href="#">Scenarios</a>
+                            <ul class="Scenarios-box ">
+                                <li><a href="/b2b">B2B</a></li>
+                                <li><a href="/socialmedia">SocialMedia</a></li>
+                                <li><a href="/sms">SMS</a></li>
+                            </ul>
+                            <img src="../static/images/downarrow.png" class="downarrow ">
+                        </li>
                     </ul>
-                    <img src="../static/images/downarrow.png" class="downarrow">
-                </li>
-
-                <li><a href="#">Guide</a></li>
-
-                <li>
-                    <a href="#">Contact</a></li>
-            </ul>
-            <!-- nav right end -->
+                </div>
+            </nav>
         </div>
     </div>
     <!-- head nav end -->
-
-    <div class="biglogo">
-        <iframe src="../static/images/2a.nz.svg" class="big_logo" frameborder="0"></iframe>
-    </div>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <!-- card start -->
-    <div class="container margintop">
-        <center>
-            <div class="container-content col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <center>
-                            {{data["cardTitle"]}}
-                        </center>
-                    </div>
-                    <div class="card-body">
-                        {% block nav %} {% end %}
+    <div class="biglogo">
+        <iframe src="../static/images/2a.nz.svg" width="20%" height="100%" class="big_logo" frameborder="0"></iframe>
+    </div>
+    <div style="overflow: auto;">
+        <div class="container margintop">
+            <!-- <center> -->
+            <div class="row rowcenter" style="display: table-cell;vertical-align: middle;">
+                <div class="container-content col-md-10">
+                    <div class="card">
+                        <div class="card-header">
+                            <center>
+                                {{data["cardTitle"]}}
+                            </center>
+                        </div>
+                        <div class="card-body">
+                            {% block nav %} {% end %}
+                        </div>
                     </div>
                 </div>
             </div>
-        </center>
+            <!-- </center> -->
+        </div>
     </div>
     <!-- card end -->
-    <br>
-    <br>
-    <br>
-    <br>
     <br>
     <br>
     <br>
@@ -100,22 +98,30 @@
     <!-- foot nav start -->
     <div class="foot-nav-container-content">
         <div class="foot-nav-container-main-footer">
-            <ul class="foot-nav-ul">
-                <li><a href="https://github.com/haganmao/2A-SHORTURL">Github</a>
-                    <img style="width: 16px;height:16px;" src="../static/images/github-logo.png" alt=""></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li class="language">
-                    <a href="">Language</a></li>
+            <ul class="nav justify-content-center foot-nav-ul">
+                <a><img style="width: 32px;height:32px;position: absolute;margin-top: 4px;margin-left: -10px;" src="../static/images/github-logo.png" alt="">
+                </a>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://github.com/haganmao/2A-SHORTURL">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/policy">Policy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/term">Terms of Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" style="color: #9e9e9e;" href="#">Language</a>
+                </li>
             </ul>
-            <p class="copyright">
-                © 2020 2A SHORTURL Inc. All Rights Reserved.
-            </p>
         </div>
-        <br>
     </div>
+    <center>
+        <p class="copyright">
+            © 2020 2A SHORTURL Inc. All Rights Reserved.
+        </p>
+    </center>
     <!-- foot nav end -->
-    {% block foot %}{% end %}
 </body>
 
 </html>

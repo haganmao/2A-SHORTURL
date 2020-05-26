@@ -5,7 +5,7 @@
             <div id="valid_url"></div>
         </center>
         <label for="longurl"></label> {% raw xsrf_form_html() %}
-        <input class="form-control"  name="url" type="url" id="url" rows="6" placeholder="Shorten your long link here!" spellcheck="false" autofocus>
+        <input class="form-control long_url_input"  name="url" type="url" id="url" rows="6" placeholder="Shorten your long link here!" spellcheck="false" autofocus>
         <br>
         <div class="expireTime">
             <div class="form-check form-check-inline">
@@ -22,7 +22,7 @@
             </div>
             <div class="button">
                 <button type="button" id="btn-short" class="btnS">Shorten</button>
-                <button type="reset" id="btn-reset">Clear</button>
+                <button type="reset" id="btn-reset">C l e a r</button>
             </div>
         </div>
     </div>
@@ -65,4 +65,4 @@
         });
     });
 </script>
-{% end %} {% block foot %} {% end %}
+{% end %} 

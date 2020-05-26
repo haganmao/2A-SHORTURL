@@ -22,6 +22,7 @@ class overviewHandler(coreHandler):
                     uuid=uu_id
                 ).first()
 
+        
                 #get shortcode and longurl
                 data['scode'] = uuid.short_code
                 data['longurl'] = uuid.original_url
@@ -61,6 +62,7 @@ class overviewHandler(coreHandler):
 
     # To response ShorturlOverview info from ajax http post request in overview page
     def post(self):
+
         # status code 200:success 500:fail
         result = dict(statuscode=500)
         pageNumber = int(self.get_argument('pageNumber', 1))
@@ -75,11 +77,10 @@ class overviewHandler(coreHandler):
             ).offset((pageNumber-1) * dataNum).limit(dataNum)
             
             # print("################datainfo")
-            # for d in dataInfo:
-            #         print(d)
-
-            result['datainfo'] = [
-                dict(
+            
+            result['datainfo'] = []
+            for d in dataInfo:
+                obj = dict(
                     id=d.ShorturlOverview.id,
                     short_url=d.ShorturlOverview.short_url,
                     short_url_requestIP=d.ShorturlOverview.short_url_requestIP,
@@ -87,12 +88,13 @@ class overviewHandler(coreHandler):
                     short_url_requestMethod=d.ShorturlOverview.short_url_requestMethod,
                     short_url_createTime=d.ShorturlOverview.short_url_createTime.strftime("%Y-%m-%d %H:%M:%S")
                 )
-                for d in dataInfo
-            ]
-            if result['datainfo']:
-                result['statuscode'] = 200
-            else:     
-                result['statuscode'] = 500
+                result['datainfo'].append(obj)
+            # print("~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+            # print(result['datainfo'])
+            if result["datainfo"]:
+                result["statuscode"] = 200
+            else:
+                result["statuscode"] = 500
         except Exception as exception:
             self.session.rollback()
         else:

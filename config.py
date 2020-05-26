@@ -20,7 +20,8 @@ settings = {
     "template_path": os.path.join(path, "template"),
     "static_path": os.path.join(path, "static"),
     "model_path": os.path.join(path, "model"),
-    "ip2Region_DB_path":os.path.join(path,"static/ip2region-master/data/ip2region.db")
+    "ip2Region_DB_path":os.path.join(path,"static/ip2region-master/data/ip2region.db"),
+    "geoip2_DB_path":os.path.join(path,"static/GeoLite2-City_20200512/GeoLite2-City.mmdb")
 }
 
 # print("##################")

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}{% block nav %}
+<form class="formcontact" id="form_contact" onsubmit="alert('We will contact you soon, Thank you!')" action="/contact">
+    <div class="form-group">
+        <p id="contactsubtitle">We aim to help you to get better experience with us, So keep in touch</p>
+        <div class="input-group mb-3">
+            <input class="input-control form-control" type="text" name="fullname" placeholder="Full Name" spellcheck="false" required autofocus> {% raw xsrf_form_html() %}
+        </div>
+        <div class="input-group mb-3">
+            <input class="input-control form-control" type="email" name="email" placeholder="Email" spellcheck="false" required>
+        </div>
+        <div class="input-group mb-3">
+            <textarea class="input-control form-control" type="text" name="message" rows="10" name="" id="" placeholder="Your Message" spellcheck="false"></textarea>
+        </div>
+        <button class="btnSend form-control" id="btnSubmit" type="submit">Send</button>
+    </div>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- <hr> -->
+<div class="row contactinfo">
+    <div class="col-lg-4">
+        <img class="img-circle" src="{{static_url('images/Lewi.png')}}" alt="avator_lewi" width="140" height="140">
+        <h2>Project Manager</h2>
+        <p>When I get my degree my plan is to continue working in the field of IT, and use the skills that I have gained at weltec and also from my summer holiday job at the Taranaki Base Hospital.</p>
+    </div>
+    <div class="col-lg-4">
+        <img class="img-circle" src="{{static_url('images/niles.png')}}" alt="avator_niles" width="140" height="140">
+        <h2>Architect</h2>
+        <p>My ambition is to apply my acquired skills and experience towards a business where I can build a career.</p>
+    </div>
+
+    <div class="col-lg-4">
+        <img class="img-circle" src="{{static_url('images/Mao.png')}}" alt="avator_mao" width="150" height="140">
+        <h2>Full-Stack Developer</h2>
+        <p> I am a reliable, personable, and hardworking person who is passionate about the IT industry and keen to learn from experienced people and develop my career.</p>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function name(params) {
+        function getCookie(name) {
+            var c = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+            return c ? c[1] : undefined;
+        }
+        $('#btnSubmit').click(function name(params) {
+            var form_contact = $('#form_contact').serializeArray();
+            // console.log(form_contact[0].value);
+            // console.log(form_contact[1].value);
+            // console.log(form_contact[2].value);
+            $.ajax({
+                url: '/contact',
+                type: 'POST',
+                _xrsf: getCookie('_xsrf'),
+                data: form_contact,
+                dataType: 'JSON',
+                success: function name(result) {
+                    if (result.statuscode == 200) {
+                        console.log('request success!');
+                        console.log(form_contact);
+                    } else {
+                        console.log('request fail!')
+                    }
+                }
+            })
+        })
+    })
+</script>
+{% end %}

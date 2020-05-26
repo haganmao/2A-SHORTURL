@@ -23,25 +23,19 @@
 <p class="text-center">Quick Acess QR Code</p>
 <div id="qrcode" class="text-center"></div>
 <hr>
-<div class="row">
-    <div class="col-md-6">
-        <a class="btn  btn-block" style="background-color: #008d36;" href="/">Generating More</a>
-    </div>
-    <div class="col-md-6">
-        <a class="btn  btn-block" style="background-color: #008d36;" href="/static/Layouts/staticurl.html">Viewing
-            Report</a>
-    </div>
+
+<div class="row1" style="display: flex;">
+    <button class="col-md-6 rw" style="background-color: #008d36;" onclick="location.href='/'">Generating More</button>
+    <button class="col-md-6 rw" style="background-color: #008d36;" id="btnvr">Viewing Report</button>
+</div>
+
+<hr>
+<div class="row2">
+    <div class="col-md-6 alert  ro">Visitors of the day:{{data['day_visitor']}}</div>
+    <div class="col-md-6 alert  ro">Total vistors:{{data['total_vistor']}}</div>
 </div>
 <hr>
-<div class=" row">
-    <div class="col-md-6">
-        <div class="alert alert-success">Visitors of the day:{{data['day_visitor']}}</div>
-    </div>
-    <div class="col-md-6">
-        <div class="alert alert-success">Total vistors:{{data['total_vistor']}}</div>
-    </div>
-</div>
-<hr>
+
 
 <table class="table table-hover" id="tbhover" data-id="1">
     {% raw xsrf_form_html() %}
@@ -57,10 +51,10 @@
     </thead>
 </table>
 
-
-<a data-id="1" id="get_more" class="btn">Next</a>
-<div id="finish_loading"></div>
-
+<center>
+    <a data-id="1" id="get_more" class="btn">Next</a>
+    <div id="finish_loading"></div>
+</center>
 <script>
     $(document).ready(function() {
         // <!--set qrcode width and height and etc -- >
@@ -112,6 +106,11 @@
             $(this).attr("data-id", pageNumber);
         })
     });
+</script>
+<script>
+    $('#btnvr').click(function name(params) {
+        location.href = "/static?uuid={{data['uuid'].uuid}}"
+    })
 </script>
 <script>
     toastr.options = {

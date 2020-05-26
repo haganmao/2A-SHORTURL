@@ -5,8 +5,6 @@ from model.database import ShortUrlInfo
 from werkzeug.datastructures import MultiDict
 
 # Home handler
-
-
 class HomeHandler(coreHandler):
     def get(self):
         data = dict(
@@ -27,8 +25,8 @@ class HomeHandler(coreHandler):
             # print("###############")
             # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             t = time.time()
-            print(t)
-            print(urlform.data['url'] + str(int(round(t*1000))))
+            # print(t)
+            # print(urlform.data['url'] + str(int(round(t*1000))))
             try:
                 uu_id = uuid.uuid4().hex
                 short_codes = self.getCode(str(int(round(t*1000))) + urlform.data['url'])
@@ -106,6 +104,8 @@ class HomeHandler(coreHandler):
                                 result = urlform.errors
                                 result['statuscode'] = 500
                                 result['url'] = 'shorturl occupied'
+                                # self.write(result['statuscode'])
+                                # self.write(result['url'])
                                 self.write(result)
                                 return
                 result['statuscode'] = 200

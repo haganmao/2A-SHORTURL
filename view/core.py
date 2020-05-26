@@ -77,7 +77,21 @@ class coreHandler(requesthandler):
     def getDay(self, day=0):
         return (datetime.datetime.now() + datetime.timedelta(days=day)).strftime("%Y-%m-%d")
 
+    # get last 7 days list
+    def getDay_list_7(self,daynow):
+        for i in range(1, 8):
+            oneday = datetime.timedelta(days=i)
+            day = daynow - oneday
+            date_to = datetime.datetime(day.year, day.month, day.day)
+            yield str(date_to)[6:10]
 
+    # get last 14 days list
+    # def getDay_list_14(self,daynow):
+    #     for i in range(1, 15):
+    #         oneday = datetime.timedelta(days=i)
+    #         day = daynow - oneday
+    #         date_to = datetime.datetime(day.year, day.month, day.day)
+    #         yield str(date_to)[6:10]
 
     # get form Params
     @property
@@ -124,5 +138,4 @@ class urlForm(Form):
             URL(message='is not a valid url, Unable to shorten that link, Enter exp:http://..or https://..')
         ]
     )
-
 
