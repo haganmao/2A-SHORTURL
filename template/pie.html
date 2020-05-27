@@ -7,11 +7,11 @@
 
 </head>
 <body>
-    <div id="3ea2927e7e66484b9ce6baf5cc176008" class="chart-container" style="width:800pX; height:400px;"></div>
+    <div id="1d4d9eeff6874f21aae97f4d5bcb3e31" class="chart-container" style="width:900px; height:500px;"></div>
     <script>
-        var chart_3ea2927e7e66484b9ce6baf5cc176008 = echarts.init(
-            document.getElementById('3ea2927e7e66484b9ce6baf5cc176008'), 'white', {renderer: 'canvas'});
-        var option_3ea2927e7e66484b9ce6baf5cc176008 = {
+        var chart_1d4d9eeff6874f21aae97f4d5bcb3e31 = echarts.init(
+            document.getElementById('1d4d9eeff6874f21aae97f4d5bcb3e31'), 'white', {renderer: 'canvas'});
+        var option_1d4d9eeff6874f21aae97f4d5bcb3e31 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -53,7 +53,7 @@
             "clockwise": true,
             "data": [
                 {
-                    "name": "PC",
+                    "name": "Mobile",
                     "value": 1
                 }
             ],
@@ -66,8 +66,8 @@
                 "50%"
             ],
             "label": {
-                "show": true,
-                "position": "inner",
+                "show": false,
+                "position": "top",
                 "margin": 8
             },
             "tooltip": {
@@ -88,6 +88,23 @@
                 "brushType": "stroke",
                 "scale": 2.5,
                 "period": 4
+            },
+            "init_opts": {
+                "width": "800px",
+                "height": "400px",
+                "renderer": "canvas",
+                "page_title": "Awesome-pyecharts",
+                "theme": "white",
+                "animationOpts": {
+                    "animation": true,
+                    "animationThreshold": 2000,
+                    "animationDuration": 1000,
+                    "animationEasing": "cubicOut",
+                    "animationDelay": 0,
+                    "animationDurationUpdate": 300,
+                    "animationEasingUpdate": "cubicOut",
+                    "animationDelayUpdate": 0
+                }
             }
         },
         {
@@ -96,7 +113,7 @@
             "clockwise": true,
             "data": [
                 {
-                    "name": "Windows",
+                    "name": "Macintosh",
                     "value": 1
                 }
             ],
@@ -109,52 +126,9 @@
                 "50%"
             ],
             "label": {
-                "show": true,
-                "position": "outside",
-                "margin": 8,
-                "formatter": "{a|{a}}{abg|}\n{hr|}\n {b|{b}: }{c}  {per|{d}%}  ",
-                "backgroundColor": "#eee",
-                "borderColor": "#aaa",
-                "borderWidth": 1,
-                "borderRadius": 4,
-                "rich": {
-                    "a": {
-                        "color": "#999",
-                        "lineHeight": 22,
-                        "align": "center"
-                    },
-                    "abg": {
-                        "backgroundColor": "#e3e3e3",
-                        "width": "100%",
-                        "align": "right",
-                        "height": 22,
-                        "borderRadius": [
-                            4,
-                            4,
-                            0,
-                            0
-                        ]
-                    },
-                    "hr": {
-                        "borderColor": "#aaa",
-                        "width": "100%",
-                        "borderWidth": 0.5,
-                        "height": 0
-                    },
-                    "b": {
-                        "fontSize": 16,
-                        "lineHeight": 33
-                    },
-                    "per": {
-                        "color": "#eee",
-                        "backgroundColor": "#334455",
-                        "padding": [
-                            2,
-                            4
-                        ],
-                        "borderRadius": 2
-                    }
-                }
+                "show": false,
+                "position": "top",
+                "margin": 8
             },
             "tooltip": {
                 "show": true,
@@ -174,14 +148,31 @@
                 "brushType": "stroke",
                 "scale": 2.5,
                 "period": 4
+            },
+            "init_opts": {
+                "width": "800px",
+                "height": "400px",
+                "renderer": "canvas",
+                "page_title": "Awesome-pyecharts",
+                "theme": "white",
+                "animationOpts": {
+                    "animation": true,
+                    "animationThreshold": 2000,
+                    "animationDuration": 1000,
+                    "animationEasing": "cubicOut",
+                    "animationDelay": 0,
+                    "animationDurationUpdate": 300,
+                    "animationEasingUpdate": "cubicOut",
+                    "animationDelayUpdate": 0
+                }
             }
         }
     ],
     "legend": [
         {
             "data": [
-                "PC",
-                "Windows"
+                "Mobile",
+                "Macintosh"
             ],
             "selected": {},
             "show": true,
@@ -214,7 +205,7 @@
         }
     ]
 };
-        chart_3ea2927e7e66484b9ce6baf5cc176008.setOption(option_3ea2927e7e66484b9ce6baf5cc176008);
+        chart_1d4d9eeff6874f21aae97f4d5bcb3e31.setOption(option_1d4d9eeff6874f21aae97f4d5bcb3e31);
     </script>
 </body>
 </html>

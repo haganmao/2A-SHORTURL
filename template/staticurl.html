@@ -12,11 +12,11 @@
     <link rel="stylesheet" type="text/css" href="{{static_url('css/common.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon-16x16.png">
-    <link rel="manifest" href="../static/images/site.webmanifest">
-    <link rel="mask-icon" href="../static/images/safari-pinned-tab.svg" color="#008d36">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{static_url('images/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{static_url('images/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{static_url('images/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{static_url('images/site.webmanifest')}}">
+    <link rel="mask-icon" href="{{static_url('images/safari-pinned-tab.svg')}}" color="#008d36">
     <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js "></script>
     <script src=" https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js "></script>
     <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js "></script>
@@ -46,7 +46,7 @@
                                 <li><a href="/socialmedia">SocialMedia</a></li>
                                 <li><a href="/sms">SMS</a></li>
                             </ul>
-                            <img src="../static/images/downarrow.png" class="downarrow ">
+                            <img src="{{static_url('images/downarrow.png')}}" class="downarrow ">
                         </li>
                     </ul>
                 </div>
@@ -61,13 +61,13 @@
 
 
     <div class="biglogo">
-        <iframe src="../static/images/2a.nz.svg" width="20%" height="100%" class="big_logo" frameborder="0"></iframe>
+        <iframe src="{{static_url('images/2a.nz.svg')}}" width="20%" height="100%" class="big_logo" frameborder="0"></iframe>
         <div style="font-weight: bold;">
             {{data['title']}}
         </div>
     </div>
-    <div class="row col-md-12" style="text-align: center;margin-top: 5%;margin-left: -8px;border-bottom: 1px solid #000000;">
-        <div class="col-md-3" style="background-color: #008d3d;">Highest IP: {{data['hIP']}}
+    <div class="row col-md-12" style="text-align: center;margin-top: 5%;margin-left: -8px;border-bottom: 1px solid #000000;border-top: 1px solid #000000;">
+        <div class="col-md-3" style="background-color: #008d36;">Highest IP: {{data['hIP']}}
         </div>
         <div class="col-md-3" style="background-color: #dbc12d;">Highest Clicked of Country: {{data['hCountry']}}
         </div>
@@ -78,8 +78,8 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3" style="text-align: left;background-color: #008d3d;">
-            <div style="">
+        <div class="col-md-3" style="text-align: left;background-color: #008d36;">
+            <div>
                 <h4>Top 5 access IP</h4>
                 <p>1. {{data['hIP1']}}</p>
                 <p>2. {{data['hIP2']}}</p>
@@ -89,29 +89,28 @@
             </div>
             <br>
             <hr>
-            <div style="">
+            <div>
                 <h4>Top 3 Countries</h4>
                 <p>1. {{data['hCountry1']}}</p>
                 <p>2. {{data['hCountry2']}}</p>
                 <p>3. {{data['hCountry3']}}</p>
             </div>
         </div>
-        <iframe style="position: relative;margin-top: 5%;" class="col-md-8" height="650" width="500" src="https://600ded1a.ngrok.io/worldmap?uuid={{data['uuid']}}" frameborder="0"></iframe>
+        <iframe style="position: relative;margin-top: 5%;" class="col-md-8" height="650" width="500" src="https://cdc93eaa.ngrok.io/worldmap?uuid={{data['uuid']}}" frameborder="0"></iframe>
     </div>
     <hr>
     <div class="row" style="position: relative;top: 0;">
         <div style="text-align: center;">
-            <iframe class="col-md-6" style="margin-top: 10%;" height="600" width="400" src="https://600ded1a.ngrok.io/pie?uuid={{data['uuid']}}" frameborder="0"></iframe>
+            <iframe class="col-md-6" style="margin-top: 10%;" height="600" width="400" src="https://cdc93eaa.ngrok.io/pie?uuid={{data['uuid']}}" frameborder="0"></iframe>
         </div>
     </div>
     <hr>
     <div class="row" style="position: relative;top: 0;">
         <div style="text-align: center;">
-            <iframe class="col-md-6" style="margin-top: 10%;" height="550" width="400" src="https://600ded1a.ngrok.io/calendar?uuid={{data['uuid']}}" frameborder="0"></iframe>
+            <iframe class="col-md-6" style="margin-top: 10%;" height="550" width="400" src="https://cdc93eaa.ngrok.io/calendar?uuid={{data['uuid']}}" frameborder="0"></iframe>
         </div>
     </div>
     <hr>
-
     <center>
         <div class="row">
             <div class="col-md-6">
@@ -121,9 +120,39 @@
             </div>
         </div>
     </center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-    
-
+    <div style="overflow: auto; height: 30px;text-align: center;border-bottom: 1px solid #000000;font-weight: 900;height: max-content;">
+        Access History
+        <table class="table table-hover" id='tbnext' data-id="1" style="font-size: smaller;color: #5c5b5b;white-space: nowrap;height: 100%;">
+            {% raw xsrf_form_html() %}
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">IP Address</th>
+                    <th scope="col">Connect Type</th>
+                    <th scope="col">OS Type</th>
+                    <th scope="col">OS Name</th>
+                    <th scope="col">Broswer Name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Time</th>
+                </tr>
+            </thead>
+        </table>
+        <center>
+            <a class="btn" data-id="1" id="get_next" style="background-color:#df0b36;">Next</a>
+            <div id="end_loading"></div>
+        </center>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <center>
         <p style="text-align: center;bottom: 0;color: #9e9e9e;font-size: smaller;">@All data statistics can not be used for commercial purposes, all data information subject to reference only. </p>
     </center>
@@ -132,8 +161,7 @@
     <div class="foot-nav-container-content">
         <div class="foot-nav-container-main-footer">
             <ul class="nav justify-content-center foot-nav-ul">
-                <a><img style="width: 32px;height:32px;position: absolute;margin-top: 4px;margin-left: -10px;" src="../static/images/github-logo.png" alt="">
-                </a>
+                <a><img style="width: 32px;height:32px;position: absolute;margin-top: 4px;margin-left: -10px;" src="{{static_url('images/github-logo.png')}}" alt="">                           </a>
                 <li class="nav-item">
                     <a class="nav-link active" href="https://github.com/haganmao/2A-SHORTURL">Github</a>
                 </li>
@@ -156,8 +184,48 @@
     </center>
     <!-- foot nav end -->
 
+    <script>
+        $(document).ready(function() {
+            function getCookie(name) {
+                var c = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+                return c ? c[1] : undefined;
+            }
 
+            function getPageData(pageNumber) {
+                $.ajax({
+                    url: '/static',
+                    data: {
+                        pageNumber: pageNumber,
+                        _xsrf: getCookie("_xsrf"),
+                        uuid: "{{data['uuid']}}"
+                    },
+                    datatype: 'json',
+                    type: 'POST',
+                    success: function(result) {
+                        if (result.statuscode == 200) {
+                            var datainfo = result.datainfo;
+                            for (var dataValue in datainfo) {
+                                var html = '<tr><td>' + datainfo[dataValue]['id'] + '</td><td>' + datainfo[dataValue]['short_url_requestIP'] + '</td><td>' + datainfo[dataValue]['short_url_access_connectType'] + '</td><td>' + datainfo[dataValue]['short_url_access_osType'] + '</td><td>' + datainfo[dataValue]['short_url_access_osName'] + '</td><td>' + datainfo[dataValue]['short_url_access_agent_name'] + '</td><td>' + datainfo[dataValue]['short_url_requestLocation'] + '</td><td>' + datainfo[dataValue]['short_url_createTime'] + '</td></tr>';
+                                $('#tbnext').append(html);
+                            }
+                        } else {
+                            $('#end_loading').empty();
+                            $('#end_loading').append(
+                                '<span> no more records avaliable! </span>'
+                            );
+                        }
+                    }
+                })
+            }
+            getPageData(1);
 
+            $("#get_next").click(function() {
+                var pageNumber = parseInt($(this).attr("data-id")) + 1;
+                getPageData(pageNumber);
+                $(this).attr("data-id", pageNumber);
+            })
+        });
+    </script>
 </body>
 
 

@@ -25,7 +25,7 @@ class contactHandler(coreHandler):
         EMAIL_PORT = 465
 
         mail_sender = '2aurlshortner@gmail.com'
-        mail_receiver = ['2aurlshortner@gmail.com']
+        mail_receiver = ['2aurlshortner@gmail.com','2a.nz@mail.com']
 
         # print(m)
         if contact_form:
@@ -37,22 +37,23 @@ class contactHandler(coreHandler):
             message['To'] = ','.join(mail_receiver)
             message['subject'] = contact_form['fullname'] + \
                 ' contact form information received'
-            print("#######################1")
-            s = smtplib.SMTP_SSL(EMAIL_HOST, EMAIL_PORT)
-            print("#######################2")
-            s.connect(EMAIL_HOST, EMAIL_PORT)
-            s.login(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
-
-            print("#######################3")
-            print(message)
-            s.sendmail(
-                mail_sender, mail_receiver, message.as_string()
-            )
-            s.quit()
             try:
+                # print("#######################1")
+                s = smtplib.SMTP_SSL(EMAIL_HOST, EMAIL_PORT)
+                # print("#######################2")
+                s.connect(EMAIL_HOST, EMAIL_PORT)
+                s.login(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
+
+                # print("#######################3")
+                print(message)
+                s.sendmail(
+                    mail_sender, mail_receiver, message.as_string()
+                )
+                s.quit()
                 print('send success')
             except Exception as expection:
-                print("#######################")
+                # print("#######################")
+                repr(expection)
                 return 'send error'
             result['statuscode'] = 200
         else:

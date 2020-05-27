@@ -12,11 +12,11 @@
     <link rel="stylesheet" type="text/css" href="{{static_url('css/common.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon-16x16.png">
-    <link rel="manifest" href="../static/images/site.webmanifest">
-    <link rel="mask-icon" href="../static/images/safari-pinned-tab.svg" color="#008d36">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{static_url('images/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{static_url('images/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{static_url('images/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{static_url('images/site.webmanifest')}}">
+    <link rel="mask-icon" href="{{static_url('images/safari-pinned-tab.svg')}}" color="#008d36">
     <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js "></script>
     <script src=" https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js "></script>
     <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js "></script>
@@ -37,7 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbar-content">
                     <ul class="navbar-nav head-nav-ul-right ml-auto">
                         <li class="nav-item"><a href="/">Home</a></li>
-                        <li class="nav-item"><a href="#">Guide</a></li>
+                        <li class="nav-item disabled"><a href="#">Guide</a></li>
                         <li class="nav-item"><a href="/contact">Contact</a></li>
                         <li class="nav-item Scenarios">
                             <a href="#">Scenarios</a>
@@ -46,7 +46,7 @@
                                 <li><a href="/socialmedia">SocialMedia</a></li>
                                 <li><a href="/sms">SMS</a></li>
                             </ul>
-                            <img src="../static/images/downarrow.png" class="downarrow ">
+                            <img src="{{static_url('images/downarrow.png')}}" class="downarrow ">
                         </li>
                     </ul>
                 </div>
@@ -65,7 +65,7 @@
     <br>
     <!-- card start -->
     <div class="biglogo">
-        <iframe src="../static/images/2a.nz.svg" width="20%" height="100%" class="big_logo" frameborder="0"></iframe>
+        <iframe src="{{static_url('images/2a.nz.svg')}}" width="20%" height="100%" class="big_logo" frameborder="0"></iframe>
     </div>
     <div style="overflow: auto;">
         <div class="container margintop">
@@ -99,7 +99,7 @@
     <div class="foot-nav-container-content">
         <div class="foot-nav-container-main-footer">
             <ul class="nav justify-content-center foot-nav-ul">
-                <a><img style="width: 32px;height:32px;position: absolute;margin-top: 4px;margin-left: -10px;" src="../static/images/github-logo.png" alt="">
+                <a><img style="width: 32px;height:32px;position: absolute;margin-top: 4px;margin-left: -10px;" src="{{static_url('images/github-logo.png')}}" alt="">
                 </a>
                 <li class="nav-item">
                     <a class="nav-link active" href="https://github.com/haganmao/2A-SHORTURL">Github</a>

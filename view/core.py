@@ -124,7 +124,7 @@ class coreHandler(requesthandler):
     @property
     #get server ip address
     def gerIP(self):
-        return "http://127.0.0.1:8080/"
+        return "http://3.105.189.187/"
 
      
 

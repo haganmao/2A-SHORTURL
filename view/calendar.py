@@ -6,6 +6,7 @@ from pyecharts.charts import Calendar
 from pyecharts import options as opt
 from model.database import ShortUrlInfo, ShorturlOverview
 from sqlalchemy import and_, join, func, desc
+from config import settings
 
 
 class calendarHandler(coreHandler):
@@ -17,7 +18,7 @@ class calendarHandler(coreHandler):
 
         accesslist = self.session.query(func.date_format(ShorturlOverview.short_url_createTime, '%Y-%m-%d').label(
             'date'), func.count(ShorturlOverview.short_url_id)).filter(ShorturlOverview.short_url == ShortUrlInfo.short_code).filter(ShortUrlInfo.uuid == uu_id).group_by('date').order_by('date').all()
-        print(accesslist)
+        # print(accesslist)
 
         data = []
         for d in accesslist:
@@ -25,8 +26,8 @@ class calendarHandler(coreHandler):
             clist_item.append(d[0])
             clist_item.append(d[1])
             data.append(clist_item)
-        print('~~~~~~~~~~~~~~~~~~~~clist')
-        print(data)
+        # print('~~~~~~~~~~~~~~~~~~~~clist')
+        # print(data)
         
         # data = [
         #     [str(begin + datetime.timedelta(days=i)),
@@ -60,5 +61,9 @@ class calendarHandler(coreHandler):
             ),
         )
 
-        calendar.render(path='./template/calendar.html')
+        # calendar.render(path='./template/calendar.html')
+        # path = settings['template_path']
+        calendar.render(path=settings['template_path'] + '/calendar.html', encoding='utf-8')
+        # print('~~~~~~~~~~~~~~~~~~path')
+        # print(path)
         self.render('calendar.html')

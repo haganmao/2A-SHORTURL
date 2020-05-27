@@ -35,22 +35,19 @@
     <div class="col-md-6 alert  ro">Total vistors:{{data['total_vistor']}}</div>
 </div>
 <hr>
-
-
-<table class="table table-hover" id="tbhover" data-id="1">
-    {% raw xsrf_form_html() %}
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">URL</th>
-            <th scope="col">IP</th>
-            <th scope="col">Location</th>
-            <th scope="col">Method</th>
-            <th scope="col">Time</th>
-        </tr>
-    </thead>
-</table>
-
+    <table class="table table-hover" id="tbhover" data-id="1" >
+        {% raw xsrf_form_html() %}
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">URL</th>
+                <th scope="col">IP</th>
+                <th scope="col">Location</th>
+                <th scope="col">Method</th>
+                <th scope="col">Time</th>
+            </tr>
+        </thead>
+    </table>
 <center>
     <a data-id="1" id="get_more" class="btn">Next</a>
     <div id="finish_loading"></div>
