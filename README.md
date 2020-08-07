@@ -63,7 +63,8 @@ We have developed a browser extension that when clicked, copies the URL of the w
 <br>
 
 <div align="center">
-  <a href="https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/3.%20Person1%20Shortening%20URL.MP4"><img src="https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/2.%20include%20somewhere%20before%20the%20first%20video%20clip.JPG" alt="bt1"></a>
+  <iframe src="https://player.vimeo.com/video/445703269" width="640" height="346" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/445703269">3 Person1 Shortening URL</a> from <a href="https://vimeo.com/user121006713">2a urlshortner</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 </div>
 
 <br>
