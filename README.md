@@ -28,22 +28,23 @@ The project itself is developed based on the Python tornado framework, but on th
 * redis==3.4.1**
 
 # Starting of services for development
-1. Install requirement dependent package environments
-   ** Pip3 install -r requirements.txt **
+<br>
++ Install requirement dependent package environments
+  1. pip3 install -r requirements.txt 
    
-2. Start Redis and Mysql services(Unix)
++ Start Redis and Mysql services(Unix)
  
-  1. ** sudo systemctl start redis **
-  2. ** sudo systemctl enable redis **
-  3. ** sudo systemctl start mysqld **
+  1. sudo systemctl start redis 
+  2. sudo systemctl enable redis 
+  3. sudo systemctl start mysqld 
 
-3. Start Redis and Mysql services(Windows)
++ Start Redis and Mysql services(Windows)
 
-   1. ** redis-server.exe redis.windows.conf ** 
-   2. ** net start mysql** 
+  1. redis-server.exe redis.windows.conf 
+  2. net start mysql** 
 
-4. Start the server executable
-   ** Python3 server.py **
++ Start the server executable
+  1. Python3 server.py 
 <br>
 <br>
 
