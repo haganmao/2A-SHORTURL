@@ -67,6 +67,17 @@ The project itself is developed based on the Python tornado framework, but on th
 
 <br>
 
++ QR Code Access &  Big Data Representation
+
+1. Every link that is created also generates a QR code that can be downloaded or printed for quick access. Each link that you create has an advanced statistic page created automatically. This data is represented in many different ways, some of which are; World maps, device pie charts, calendars and much more.
+
+<br>
+
+[![QR codee](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/2.JPG)](https://vimeo.com/445703429"click for video demonstration")
+[![QR codee](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/3.JPG)](https://vimeo.com/445703429"click for video demonstration")
+
+<br>
+
 
 
 
