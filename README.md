@@ -41,7 +41,7 @@ The project itself is developed based on the Python tornado framework, but on th
 + Start Redis and Mysql services(Windows)
 
   1. redis-server.exe redis.windows.conf 
-  2. net start mysql** 
+  2. net start mysql 
 
 + Start the server executable
   1. Python3 server.py 
@@ -49,3 +49,6 @@ The project itself is developed based on the Python tornado framework, but on th
 <br>
 
 # Features
+
+
+
