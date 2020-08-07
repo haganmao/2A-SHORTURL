@@ -60,7 +60,7 @@ The project itself is developed based on the Python tornado framework, but on th
 + Browser Extension
 We have developed a browser extension that when clicked, copies the URL of the webpage you are currently on, then takes you to 2a.nz where you can paste in your long URL for even faster shortening.
 <br>
-<video src="https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/4.%20Person2%20using%20short%20URL.mp4" controls="controls" width="500" height="300"></video>
+<video src="https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/4.%20Person2%20using%20short%20URL.mp4" controls="controls"></video>
 
 
 
