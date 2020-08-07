@@ -27,8 +27,10 @@ The project itself is developed based on the Python tornado framework, but on th
 * pyecharts==1.7.1
 * redis==3.4.1**
 
-# Starting of services for development
+## Starting of services for development
 <br>
+<br>
+
 + Install requirement dependent package environments
   1. pip3 install -r requirements.txt 
    
