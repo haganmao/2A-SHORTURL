@@ -11,7 +11,7 @@ To further clarify on the MTV model, please refer as below:
 * M - Model is the data access layer. This layer covers access to data, how data is validated, relationships between data to objects and also how data is stored.
 * T - Templates are basically when the user sees (commonly referred to as the presentation layer) in this case it will be how information is displayed on the static and dynamically created HTML pages.
 * V - View is the logic layer which is the core part of the system. All data from the users input will be processed in this layer. The logic layer acts as a bridge between the model and template layers.
-<br>
+
 <br>
 
 # Development environment
@@ -28,7 +28,6 @@ The project itself is developed based on the Python tornado framework, but on th
 * redis==3.4.1**
 
 ## Starting of services for development
-<br>
 <br>
 
 + Install requirement dependent package environments
