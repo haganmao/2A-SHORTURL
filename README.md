@@ -33,14 +33,14 @@ The project itself is developed based on the Python tornado framework, but on th
    
 2. Start Redis and Mysql services(Unix)
  
-   ** 1. sudo systemctl start redis **
-   ** 2. sudo systemctl enable redis **
-   ** 3. sudo systemctl start mysqld **
+  1. ** sudo systemctl start redis **
+  2. ** sudo systemctl enable redis **
+  3. ** sudo systemctl start mysqld **
 
 3. Start Redis and Mysql services(Windows)
 
-   ** 1. redis-server.exe redis.windows.conf ** 
-   ** 2. net start mysql** 
+   1. ** redis-server.exe redis.windows.conf ** 
+   2. ** net start mysql** 
 
 4. Start the server executable
    ** Python3 server.py **
