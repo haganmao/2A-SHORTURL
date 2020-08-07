@@ -17,33 +17,34 @@ To further clarify on the MTV model, please refer as below:
 # Development environment
 The project itself is developed based on the Python tornado framework, but on this basis, our project is still dependent on a number of Python libraries. As there are many Python enthusiasts who contribute to the Python library community, this is the main reason why we chose Python as the development language. Please refer the details of the libraries that were used below:
 
-*SQLAlchemy==1.3.13
-*tornado==6.0.3
-*urllib3==1.25.8
-*Werkzeug==1.0.0
-*WTForms==2.2.1
-*PyMySQL==0.9.3
-*matplotlib==3.2.0
-*pyecharts==1.7.1
-*redis==3.4.1**
+* SQLAlchemy==1.3.13
+* tornado==6.0.3
+* urllib3==1.25.8
+* Werkzeug==1.0.0
+* WTForms==2.2.1
+* PyMySQL==0.9.3
+* matplotlib==3.2.0
+* pyecharts==1.7.1
+* redis==3.4.1**
 
 # Starting of services for development
 1. Install requirement dependent package environments
-   Command:
-   **Pip3 install -r requirements.txt**
-2.a. Start Redis and Mysql services(Unix)
-   Command:
-   **1. sudo systemctl start redis**
-   **2. sudo systemctl enable redis**
-   **3. sudo systemctl start mysqld**
-
-2.b. Start Redis and Mysql services(Windows)
-   Command:
-   **1. redis-server.exe redis.windows.conf** 
-   **2. net start mysql** 
-
-3. Start the server executable
-   Command:
-   **Python3 server.py**
+   ** Pip3 install -r requirements.txt **
    
+2. Start Redis and Mysql services(Unix)
+ 
+   ** 1. sudo systemctl start redis **
+   ** 2. sudo systemctl enable redis **
+   ** 3. sudo systemctl start mysqld **
+
+3. Start Redis and Mysql services(Windows)
+
+   ** 1. redis-server.exe redis.windows.conf ** 
+   ** 2. net start mysql** 
+
+4. Start the server executable
+   ** Python3 server.py **
+<br>
+<br>
+
 # Features
