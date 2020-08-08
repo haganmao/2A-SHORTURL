@@ -81,8 +81,8 @@ The project itself is developed based on the Python tornado framework, but on th
 ![bd1](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/Capture3.PNG "cdemo2")
 
 <br>
-![db2](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/Capture4.PNG "d4")
 
+[![big_dataDEMO](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/Capture3.PNG)](https://vimeo.com/445703429 "click for video demonstration")
 <br>
 
 
