@@ -78,11 +78,11 @@ The project itself is developed based on the Python tornado framework, but on th
 
 2. Each link that you create has an advanced statistic page created automatically. This data is represented in many different ways, some of which are; World maps, device pie charts, calendars and much more.
 
-![bd1](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/3.JPG "qrdemo2") 
+![bd1](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/3.jpg "cdemo2") 
 <hr>
-![bd2](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/4.JPG "qrdemo3") 
+![bd2](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/4.jpg "qdeo3") 
 <hr>
-![bd3](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/5.JPG "qrdemo4") 
+![bd3](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/5.jpg "rdemo4") 
 
 <br>
 
