@@ -73,11 +73,10 @@ The project itself is developed based on the Python tornado framework, but on th
 
 <br>
 
-[![QR codee](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/2.JPG)](https://vimeo.com/445703429"click for video demonstration")
-[![QR codee](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/3.JPG)](https://vimeo.com/445703429"click for video demonstration")
+[![QR_code](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/2.JPG)](https://vimeo.com/445703429"click for video demonstration")
 
 <br>
+<br>
 
-
-
+[![ Big_Data_Representation](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/3.JPG)](https://vimeo.com/445703429"click for video demonstration")
 
