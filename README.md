@@ -71,13 +71,19 @@ The project itself is developed based on the Python tornado framework, but on th
 
 1. Every link that is created also generates a QR code that can be downloaded or printed for quick access.
 <br>
+
 ![qr1](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/2.JPG "qrdemo") 
+
 <br>
+
 2. Each link that you create has an advanced statistic page created automatically. This data is represented in many different ways, some of which are; World maps, device pie charts, calendars and much more.
 
-![bd1](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/3.JPG "qrdemo") 
-![bd2](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/4.JPG "qrdemo") 
-![bd3](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/5.JPG "qrdemo") 
+![bd1](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/3.JPG "qrdemo2") 
+<hr>
+![bd2](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/4.JPG "qrdemo3") 
+<hr>
+![bd3](https://github.com/haganmao/2A-SHORTURL/blob/master/static/images/5.JPG "qrdemo4") 
+
 <br>
 
 
