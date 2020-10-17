@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="msapplication-TileColor" content="#4f4f4f">
-    <meta name="theme-color" content="#4f4f4f">
+    <meta name="theme-color" content="#007e30">
     <meta name="apple-mobile-web-app-status-bar-style" content="#4f4f4f">
     <title>2A URL SHORTENER</title>
     <link rel="stylesheet" type="text/css" href="{{static_url('bootstrap-master/dist/css/bootstrap.min.css')}}">
@@ -21,8 +21,6 @@
     <script src=" https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js "></script>
     <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js "></script>
     <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js "></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
@@ -55,32 +53,29 @@
     </div>
     <!-- head nav end -->
     <br>
-    <br>
-    <br>
-    <br>
-
 
     <div class="biglogo">
         <iframe src="{{static_url('images/2a.nz.svg')}}" width="20%" height="100%" class="big_logo" frameborder="0"></iframe>
         <div style="font-weight: bold;">
             {{data['title']}}
+            <p class="text-center" onClick="window.location.reload()" >Refresh the page or click this message to update the data below</p>
         </div>
     </div>
     <div class="row col-md-12" style="text-align: center;margin-top: 5%;margin-left: -8px;border-bottom: 1px solid #000000;border-top: 1px solid #000000;">
-        <div class="col-md-3" style="background-color: #008d36;">Highest IP: {{data['hIP']}}
+        <div class="col-md-3" style="background-color: #008d36;">Most frequent IP: {{data['hIP']}}
         </div>
-        <div class="col-md-3" style="background-color: #dbc12d;">Highest Clicked of Country: {{data['hCountry']}}
+        <div class="col-md-3" style="background-color: #dbc12d;">Most popular country: {{data['hCountry']}}
         </div>
-        <div class="col-md-3" style="background-color: #378fc2;">Total: {{data['tclicks'] }}
+        <div class="col-md-3" style="background-color: #378fc2;">Total number of clicks: {{data['tclicks'] }}
         </div>
-        <div class="col-md-3" style="background-color: #6bd408;">Daily: {{data['dclick']}}
+        <div class="col-md-3" style="background-color: #6bd408;">Daily number of clicks: {{data['dclick']}}
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-3" style="text-align: left;background-color: #008d36;">
             <div>
-                <h4>Top 5 access IP</h4>
+                <h4>Top 5 most frequent IP addresses</h4>
                 <p>1. {{data['hIP1']}}</p>
                 <p>2. {{data['hIP2']}}</p>
                 <p>3. {{data['hIP3']}}</p>
@@ -90,24 +85,24 @@
             <br>
             <hr>
             <div>
-                <h4>Top 3 Countries</h4>
+                <h4>Top 3 most popular countries</h4>
                 <p>1. {{data['hCountry1']}}</p>
                 <p>2. {{data['hCountry2']}}</p>
                 <p>3. {{data['hCountry3']}}</p>
             </div>
         </div>
-        <iframe style="position: relative;margin-top: 5%;" class="col-md-8" height="650" width="500" src="https://cdc93eaa.ngrok.io/worldmap?uuid={{data['uuid']}}" frameborder="0"></iframe>
+        <iframe style="position: relative;margin-top: 5%;" class="col-md-8" height="650" width="500" src="http://2a.nz/worldmap?uuid={{data['uuid']}}" frameborder="0"></iframe>
     </div>
     <hr>
     <div class="row" style="position: relative;top: 0;">
         <div style="text-align: center;">
-            <iframe class="col-md-6" style="margin-top: 10%;" height="600" width="400" src="https://cdc93eaa.ngrok.io/pie?uuid={{data['uuid']}}" frameborder="0"></iframe>
+            <iframe class="col-md-6" style="margin-top: 10%;" height="600" width="400" src="http://2a.nz/pie?uuid={{data['uuid']}}" frameborder="0"></iframe>
         </div>
     </div>
     <hr>
     <div class="row" style="position: relative;top: 0;">
         <div style="text-align: center;">
-            <iframe class="col-md-6" style="margin-top: 10%;" height="550" width="400" src="https://cdc93eaa.ngrok.io/calendar?uuid={{data['uuid']}}" frameborder="0"></iframe>
+            <iframe class="col-md-6" style="margin-top: 10%;" height="550" width="400" src="http://2a.nz/calendar?uuid={{data['uuid']}}" frameborder="0"></iframe>
         </div>
     </div>
     <hr>
@@ -127,7 +122,8 @@
     <br>
 
     <div style="overflow: auto; height: 30px;text-align: center;border-bottom: 1px solid #000000;font-weight: 900;height: max-content;">
-        Access History
+        <p class="text-center" onClick="window.location.reload()" >Refresh the page or click this message to update the access history table below</p>
+
         <table class="table table-hover" id='tbnext' data-id="1" style="font-size: smaller;color: #5c5b5b;white-space: nowrap;height: 100%;">
             {% raw xsrf_form_html() %}
             <thead>
@@ -161,7 +157,8 @@
     <div class="foot-nav-container-content">
         <div class="foot-nav-container-main-footer">
             <ul class="nav justify-content-center foot-nav-ul">
-                <a><img style="width: 32px;height:32px;position: absolute;margin-top: 4px;margin-left: -10px;" src="{{static_url('images/github-logo.png')}}" alt="">                           </a>
+                <a><img style="width: 32px;height:32px;position: absolute;margin-top: 4px;margin-left: -10px;" src="{{static_url('images/github-logo.png')}}" alt="">
+                   </a>
                 <li class="nav-item">
                     <a class="nav-link active" href="https://github.com/haganmao/2A-SHORTURL">Github</a>
                 </li>
@@ -179,7 +176,7 @@
     </div>
     <center>
         <p class="copyright">
-            © 2020 2A SHORTURL Inc. All Rights Reserved.
+            © 2020 2A.NZ SHORTURL. All Rights Reserved.
         </p>
     </center>
     <!-- foot nav end -->

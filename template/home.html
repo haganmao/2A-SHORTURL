@@ -21,15 +21,14 @@
                 <input name="expireTime" id="inlineRadio-ultimated" type="radio" value="3">
             </div>
             <div class="button">
-                <button type="button" id="btn-short" class="btnS">Shorten</button>
-                <button type="reset" id="btn-reset">C l e a r</button>
+                <button type="button" id="btn-short" class="btnS"> - Shorten - </button>
+                <button type="reset" id="btn-reset"> - Clear - </button>
             </div>
         </div>
     </div>
 </form>
 
 <script>
-    //jquery to create click event and ajax submit the request
     $(function() {
         $('#btn-short').click(function() {
             var formdata = $('#formdata').serializeArray();
@@ -41,16 +40,13 @@
                 data: formdata,
                 dataType: "JSON",
                 success: function(result) {
-                    // console.log(result)
                     if (result.statuscode == 200) {
-                        //direct to overview page
                         location.href = "/overview?uuid=" + result.uuid;
                     } else {
                         var fs = ['url'];
-                        //get error message
                         for (var v in fs) {
                             if (typeof result[fs[v]] == 'undefined') {
-                                $('#valid_' + fs[v]).empty(); //'#clear valid_url'
+                                $('#valid_' + fs[v]).empty(); 
                             } else {
                                 $('#valid_' + fs[v]).empty();
                                 $('#valid_' + fs[v]).append(

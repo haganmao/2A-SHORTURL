@@ -1,27 +1,28 @@
 import urllib
 from urllib import request
 import json
-
+import redis
 
 from view.core import coreHandler
 from model.database import ShortUrlInfo, ShorturlOverview
 from tool.geoIp2 import getAddr
-
+from config import redis_db
 
 #302 redirect to longurl and save as records
 class redirectHandler(coreHandler):
     def get(self, scode):
        
         try:
+            r = redis.Redis(host=redis_db['redis_host'], port=redis_db['redis_port'], db=redis_db['redis_db'])
+            ret = r.get(scode)
+            if(ret is None):
+                self.render("error404.html")
+                return
             # get the object from db, sqlachemy
             shortcode = self.session.query(ShortUrlInfo).filter_by(short_code=scode).first()
-            # print("########################7")
-            # print(shortcode.short_code)
-            # print(shortcode.id)
-            # print(shortcode.original_url)
-           
+
             #save access record
-            self.save_record(shortcode.id)
+           #self.save_record(shortcode.id)
         except Exception as exception:
             self.session.rollback()
             
@@ -30,7 +31,7 @@ class redirectHandler(coreHandler):
         finally:
             self.session.close()
         self.redirect(shortcode.original_url)
-
+        self.save_record(shortcode.id)
     #using stringuseragent api to get user agent info with json format
     def getUserAgent(self,ua): 
         #URL encode for a valid ua
@@ -42,11 +43,6 @@ class redirectHandler(coreHandler):
 
         #read response and loadind with json
         res = urllib.request.urlopen(req).read()
-        print("~~~~~~~~~~~~~~~~~~~res")
-        print(type(ua))
-        print(ua)
-        print(type(res))
-        print(res)
         res = json.loads(res)
         return res
     
@@ -54,16 +50,10 @@ class redirectHandler(coreHandler):
     def checkConnectType(self,ua):
         if ua.find('Mobile')== -1:
             connectType = 'PC'
-            print("~~~~~~~~~~~~~~~~~~~~~~~2")
-            print('you are not mobile')
-            print(connectType)
             return connectType
 
         else:
             connectType = 'Mobile'
-            print("~~~~~~~~~~~~~~~~~~~~~~~1")
-            print('you are mobile')
-            print(connectType)
             return connectType
 
 
@@ -74,16 +64,9 @@ class redirectHandler(coreHandler):
         ua = self.request.headers['User-Agent']
         uainfo = self.getUserAgent(ua)
         connectType = self.checkConnectType(ua)
-        # print(connectType)
-        # print(ua)
-        # print(uainfo)
 
-       
         try:
             location = getAddr(self.request.remote_ip)
-            print("######################9")
-            
-            # print(location)
             if location['find'] == 1:
                 Shorturl_Overview = ShorturlOverview(
                     short_url_id = sid,
@@ -100,7 +83,6 @@ class redirectHandler(coreHandler):
                 )
                 self.session.add(Shorturl_Overview)
             else:
-                # print("!~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
                 Shorturl_Overview = ShorturlOverview(
                     short_url_id = sid,
                     short_url = self.request.uri[1:],
@@ -115,7 +97,6 @@ class redirectHandler(coreHandler):
                 )
                 self.session.add(Shorturl_Overview)
         except Exception as exception:
-            # print("!!!!!!!!!!!~~~~~~~~~~~expect")
             self.session.rollback()
         else:
             self.session.commit()

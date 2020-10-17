@@ -11,6 +11,9 @@ Green
 RBG - 0, 141, 54
 Hex - #008d36
 
+Tab lighter green
+Hex - #007e30
+
 Grey 
 Greyscale - 69%
 RGB - 79, 79, 79
@@ -25,7 +28,8 @@ body,
 div {
     margin: 0;
     padding: 0;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 ul,
@@ -39,6 +43,7 @@ li {
     display: table;
     height: 100%;
 }
+
 
 .container-content {
     display: inline-block;
@@ -62,6 +67,25 @@ iframe {
     border: none;
     border-radius: 5px;
 }
+
+a:link {
+  color: #007e30;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #4f4f4f;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #007e30;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
 
 .button {
     text-align: center;
@@ -112,11 +136,11 @@ iframe {
 }
 
 #btn-short:hover {
-    box-shadow: 0 10px 15px 0 #008d36, 0 5px 20px 0 #008d36;
+    box-shadow: 0 5px 5px 0 #008d36, 0 5px 5px 0 #008d36;
 }
 
 #btn-reset:hover {
-    box-shadow: 0 10px 15px 0 #4f4f4f, 0 5px 20px 0 #4f4f4f;
+    box-shadow: 0 5px 5px 0 #4f4f4f, 0 5px 5px 0 #4f4f4f;
 }
 
 #longurl {
@@ -226,6 +250,7 @@ iframe {
 .rw {
     flex: 1;
     height: 50px;
+    color: #FFFFFF;
 }
 
 .rw+.rw {
@@ -237,7 +262,7 @@ iframe {
     width: 100%;
     text-align: center;
     background-color: #4f4f4f;
-    color: #000000;
+    color: #FFFFFF;
     font-weight: bolder;
 }
 
@@ -264,7 +289,7 @@ iframe {
 
 .foot-nav-container-main-footer {
     /* text-align: center; */
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
 .foot-nav-container-main-footer .foot-nav-ul li {
@@ -301,6 +326,7 @@ tr:hover td {
 
 #get_more {
     background-color: #008d36;
+    color: #FFFFFF;
 }
 
 

@@ -6,35 +6,36 @@
             Long URL
         </span>
     </div>
-    <input type=url class="form-control" value="{{data['longurl']}}">
+    <input type=url class="form-control" value="{{data['longurl']}}" spellcheck="false">
 </div>
 <div class="input-group mb-3">
     <div class="input-group-prepend">
         <span class="input-group-text">
-            Shorten URL
+            Short URL
         </span>
     </div>
-    <input type=url id="shorturl" class="form-control" value="{{ handler.gerIP }}{{ data['scode'] }}">
+    <input type=url id="shorturl" class="form-control" value="2a.nz/{{ data['scode'] }}" spellcheck="false">
     <button style="font-size:16px" class="btnCopy fa fa-copy btnCopy" data-clipboard-target=#shorturl>
     </button>
 </div>
 <!-- long url and shorten url input div ends -->
-<hr>
+<p class="text-center">We recommend you bookmark this page -  Keyboard shortcut: CTRL + D</p>
 <p class="text-center">Quick Acess QR Code</p>
 <div id="qrcode" class="text-center"></div>
 <hr>
 
 <div class="row1" style="display: flex;">
-    <button class="col-md-6 rw" style="background-color: #008d36;" onclick="location.href='/'">Generating More</button>
-    <button class="col-md-6 rw" style="background-color: #008d36;" id="btnvr">Viewing Report</button>
+    <button class="col-md-6 rw" style="background-color: #008d36;" onclick="window.open('/')">Generate another</button>
+    <button class="col-md-6 rw" style="background-color: #008d36;" id="btnvr">View statistics</button>
 </div>
 
 <hr>
 <div class="row2">
-    <div class="col-md-6 alert  ro">Visitors of the day:{{data['day_visitor']}}</div>
-    <div class="col-md-6 alert  ro">Total vistors:{{data['total_vistor']}}</div>
+    <div class="col-md-6 alert  ro">Number of visitors today: {{data['day_visitor']}}</div>
+    <div class="col-md-6 alert  ro">Number of total vistors: {{data['total_vistor']}}</div>
 </div>
 <hr>
+<p class="text-center" onClick="window.location.reload()" >Refresh the page or click this message to update the table below</p>
     <table class="table table-hover" id="tbhover" data-id="1" >
         {% raw xsrf_form_html() %}
         <thead>
@@ -49,7 +50,7 @@
         </thead>
     </table>
 <center>
-    <a data-id="1" id="get_more" class="btn">Next</a>
+    <a data-id="1" id="get_more" class="btn">Load more...</a>
     <div id="finish_loading"></div>
 </center>
 <script>
@@ -89,7 +90,7 @@
                     } else {
                         $('#finish_loading').empty();
                         $('#finish_loading').append(
-                            '<span> no more data avaliable! </span>'
+                            '<span> No more data avaliable! </span>'
                         );
                     }
                 }
@@ -112,11 +113,11 @@
 <script>
     toastr.options = {
         "positionClass": "toast-top-center ",
-        "timeOut": "300"
+        "timeOut": "2000"
     };
     var clipboard = new ClipboardJS('.btnCopy');
     clipboard.on('success', function(e) {
-        toastr.success('Short Url Copied');
+        toastr.success('Short URL Copied to Clipboard');
     });
 </script>
 

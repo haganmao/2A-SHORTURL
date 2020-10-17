@@ -10,17 +10,11 @@ class pieHandler(coreHandler):
     def get(self):
 
         uuid = self.get_argument('uuid', None)
-        print("~~~~~~~~~~~~~~~~uuid")
-        print(uuid)
-
         deviceinfo = self.session.query(ShorturlOverview.short_url_access_connectType.label('device'), func.count(ShorturlOverview.short_url_id)).filter(
             ShortUrlInfo.uuid == uuid).filter(ShortUrlInfo.short_code == ShorturlOverview.short_url).group_by('device').all()
 
         osinfo = self.session.query(ShorturlOverview.short_url_access_osType.label('osinfo'), func.count(ShorturlOverview.short_url_id)).filter(
             ShortUrlInfo.uuid == uuid).filter(ShortUrlInfo.short_code == ShorturlOverview.short_url).group_by('osinfo').all()
-
-        # print("~~~~~~~~~~~deviceinfo")
-        # print(deviceinfo)
 
         inner_data_pair = []
         for device_data in deviceinfo:
@@ -35,11 +29,6 @@ class pieHandler(coreHandler):
             os_data_item.append(os_data[0])
             os_data_item.append(os_data[1])
             outer_data_pair.append(os_data_item)
-
-        # print("~~~~~~~~~~~inneinner_data")
-        # print(inner_data_pair)
-        # print("~~~~~~~~~~~~~osinfo")
-        # print(outer_data_pair)
 
         pie = Pie()
         pie.add(

@@ -22,7 +22,7 @@ from view.term import termHandler as term
 from view.worldmap import worldmapHandler as worldmap
 from view.pie import pieHandler as pie
 from view.calendar import calendarHandler as calendar
-
+from view.marketing import marketingHandler as marketing
 
 # mapping between view and router
 class Application(tornado.web.Application):
@@ -32,6 +32,7 @@ class Application(tornado.web.Application):
             (r"/overview", overview),
             (r"/([a-zA-Z0-9]{5})", redirect),
             (r"/test",test),
+	    (r"/marketing",marketing),
             (r"/worldmap",worldmap),
             (r"/pie",pie),
             (r"/calendar",calendar),
@@ -40,7 +41,7 @@ class Application(tornado.web.Application):
             (r"/b2b", b2b),
             (r"/socialmedia", socialmedia),
             (r"/sms", sms),
-            (r"/contact",contact),
+            (r"/contact",contact), 
             (r"/policy",policy),
             (r"/term",term),
             (r"/.*", error)
@@ -61,7 +62,7 @@ class Application(tornado.web.Application):
         ),
             # echo set to true, print the create processing
             encoding="utf-8",
-            echo=True,
+            echo=False,
             pool_size=100,
             pool_recycle=10,
             connect_args={"charset": 'utf8'}

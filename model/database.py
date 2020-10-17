@@ -74,7 +74,7 @@ if __name__ == "__main__":
     # define mysql_db config
     mysql_db = dict(
         host="127.0.0.1",
-        dbname="shorturl_2A",
+        dbname="shorturl_2a",
         port=3306,
         admin="root",
         password="root"

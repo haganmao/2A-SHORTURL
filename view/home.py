@@ -1,8 +1,11 @@
 import uuid
 import time
+import redis
 from view.core import coreHandler, urlForm
 from model.database import ShortUrlInfo
 from werkzeug.datastructures import MultiDict
+from config import redis_db
+
 
 # Home handler
 class HomeHandler(coreHandler):
@@ -16,37 +19,27 @@ class HomeHandler(coreHandler):
         # status code 200:success 500:fail
         result = dict(statuscode=500)
         urlform = urlForm(MultiDict(self.getFormData))
-        # print("************************************************")
-        # print(urlform.data["url"])
+       
 
         if urlform.validate():
             # check the original_url is exist on database or not, if not save the data to database
-            # print(self.session)
-            # print("###############")
-            # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             t = time.time()
-            # print(t)
-            # print(urlform.data['url'] + str(int(round(t*1000))))
+          
             try:
                 uu_id = uuid.uuid4().hex
                 short_codes = self.getCode(str(int(round(t*1000))) + urlform.data['url'])
-                # print("!~~~~~~~~~~~~~~~~~~~~~~~~~~")
-                # print(str(int(round(t*1000))) + urlform.data['url'])
-                # print('!!!!!!!!!!!!!!!!!!!!!shortcodes')
-                # print(short_codes)
+                
                 short_code1 = short_codes[0]
                 short_code2 = short_codes[1]
                 short_code3 = short_codes[2]
                 short_code4 = short_codes[3]
 
-                # print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                # print(short_code)
+           
                 # get the object from db, sqlachemy
                 short_url = self.session.query(ShortUrlInfo).filter_by(
                     short_code=short_code1
                 ).first()
-                # print(long_url)
-                # print("###############1")
+              
                 # if not exist, write data to database
                 if not short_url:
                     shorturlinfo = ShortUrlInfo(
@@ -55,9 +48,19 @@ class HomeHandler(coreHandler):
                         uuid=uu_id,
                         create_time=self.getCreateTime
                     )
-                    # print("#################shorturlinfo")
-                    # print(shorturlinfo.original_url)
+                  
+                    # redis-server.exe redis.windows.conf start redis service command
+                    # redis-cli.exe -h 127.0.0.1 -p 6379 start redis command
                     self.session.add(shorturlinfo)
+                    r = redis.Redis(host=redis_db['redis_host'], port=redis_db['redis_port'], db=redis_db['redis_db'])
+                    ret = r.set(short_code1, urlform.data['url'])
+                  
+                    if self.getFormData["expireTime"][0]=="1":
+                        r.expire(short_code1, 60*60*24) 
+                    elif self.getFormData["expireTime"][0]=="2":
+                        r.expire(short_code1, 60*60*24*7)
+                    elif self.getFormData["expireTime"][0]=="3":
+                        r.expire(short_code1, 60*60*12*365*100) 
                 else:
                     short_url = self.session.query(ShortUrlInfo).filter_by(
                         short_code=short_code2
@@ -69,9 +72,8 @@ class HomeHandler(coreHandler):
                             uuid=uu_id,
                             create_time=self.getCreateTime
                         )
-                        # print("#################shorturlinfo")
-                        # print(shorturlinfo.original_url)
                         self.session.add(shorturlinfo)
+
                     else:
                         short_url = self.session.query(ShortUrlInfo).filter_by(
                             short_code=short_code3
@@ -83,8 +85,6 @@ class HomeHandler(coreHandler):
                                 uuid=uu_id,
                                 create_time=self.getCreateTime
                             )
-                            # print("#################shorturlinfo")
-                            # print(shorturlinfo.original_url)
                             self.session.add(shorturlinfo)
                         else:
                             short_url = self.session.query(ShortUrlInfo).filter_by(
@@ -97,22 +97,15 @@ class HomeHandler(coreHandler):
                                     uuid=uu_id,
                                     create_time=self.getCreateTime
                                 )
-                                # print("#################shorturlinfo")
-                                # print(shorturlinfo.original_url)
                                 self.session.add(shorturlinfo)
                             else:
                                 result = urlform.errors
                                 result['statuscode'] = 500
                                 result['url'] = 'shorturl occupied'
-                                # self.write(result['statuscode'])
-                                # self.write(result['url'])
                                 self.write(result)
                                 return
                 result['statuscode'] = 200
                 result['uuid'] = uu_id
-                # r=result['uuid']
-                # print("#################1")
-                # print(result)
             except Exception as exception:
                 self.session.rollback()
             else:

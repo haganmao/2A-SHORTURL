@@ -12,6 +12,8 @@ from matplotlib.ticker import Formatter
 from matplotlib.pyplot import MultipleLocator
 
 # staticurl handler
+
+
 class staticurlHandler(coreHandler):
     def get(self):
         uu_id = self.get_argument('uuid', None)
@@ -22,7 +24,7 @@ class staticurlHandler(coreHandler):
         data = dict(
             title="See the world with Statistic url"
         )
-        
+
         data['hCountry'] = 'no data'
         data['hIP'] = 'no data'
         data['hIP1'] = 'no data'
@@ -57,18 +59,8 @@ class staticurlHandler(coreHandler):
             )
         ).count()
 
-        # print("~~~~~~~~~~~~~~hCountry")
-        # print(hCountry)
-        # print('~~~~~~~~~~~~~~~')
-        # print(hIP)
-        # print(accesslist)
-        # print(hCountry)
-        # print(tclicks)
-
         data['dclick'] = dclick
         data['tclicks'] = tclicks[0][0]
-        # print(len(hCountry))
-        # print(len(hIP))
 
         # get current day time
         daynow = datetime.datetime.now()
@@ -92,21 +84,18 @@ class staticurlHandler(coreHandler):
         plt.xlabel('Last 7 days vistors')
         plt.ylabel("Number of clicks")
         plt.grid(True)
-        #set y interval as 10
-        y_major_locator=MultipleLocator(10)
-        #get current x,y
+        # set y interval as 10
+        y_major_locator = MultipleLocator(10)
+        # get current x,y
         ax = plt.gca()
         ax.yaxis.set_major_locator(y_major_locator)
-        plt.ylim(0,200)
+        plt.ylim(0, 200)
         sio = BytesIO()
         plt.savefig(sio, format='png')
         plt.close()
         str1 = base64.encodebytes(sio.getvalue()).decode()
         src = 'data:image/png;base64,' + str(str1)
         data["src1"] = src
-
-
-
 
         day = datetime.datetime.now() - datetime.timedelta(days=7)
         daynow1 = datetime.datetime(day.year, day.month, day.day)
@@ -127,12 +116,12 @@ class staticurlHandler(coreHandler):
         plt.xlabel("Start from the past two weeks")
         plt.ylabel("Number of access")
         plt.plot(classes1, num1, color='red', linestyle='solid')
-       
+
         y_major_locator = MultipleLocator(5)
         ax = plt.gca()
         ax.yaxis.set_major_locator(y_major_locator)
-        plt.ylim(0,100)
-        ax1=plt.subplot()
+        plt.ylim(0, 100)
+        ax1 = plt.subplot()
         ax1.spines['top'].set_visible(False)
         ax1.spines['right'].set_visible(False)
         sio = BytesIO()
@@ -142,53 +131,70 @@ class staticurlHandler(coreHandler):
         src = 'data:image/png;base64,' + str(str1)
         data["src2"] = src
         data['uuid'] = uu_id
-     
-        if len(hCountry) and len(hIP) > 0:
-            data['hCountry'] = hCountry[0][0]
-            data['hIP'] = hIP[0][0]
-            data['hIP1'] = hIP[0][0]
-            data['hCountry1'] = hCountry[0][0]
-            if len(hCountry) and len(hIP) > 1:
-                print("pass~~~~~~~~~~~~~~")
-                data['hCountry'] = hCountry[0][0]
-                data['hIP'] = hIP[0][0]
-                data['hIP1'] = hIP[0][0]
-                data['hIP2'] = hIP[1][0]
-                data['hCountry1'] = hCountry[0][0]
-                data['hCountry2'] = hCountry[1][0]
-                if len(hCountry) and len(hIP) > 2:
-                    print("pass~~~~~~~~~~~~~~")
-                    data['hCountry'] = hCountry[0][0]
-                    data['hIP'] = hIP[0][0]
-                    data['hIP1'] = hIP[0][0]
-                    data['hIP2'] = hIP[1][0]
-                    data['hIP3'] = hIP[2][0]
-                    data['hCountry1'] = hCountry[0][0]
-                    data['hCountry2'] = hCountry[1][0]
-                    data['hCountry3'] = hCountry[2][0]
-                    if len(hCountry) and len(hIP) > 3:
-                        print("pass~~~~~~~~~~~~~~")
-                        data['hCountry'] = hCountry[0][0]
-                        data['hIP'] = hIP[0][0]
-                        data['hIP1'] = hIP[0][0]
-                        data['hIP2'] = hIP[1][0]
-                        data['hIP3'] = hIP[2][0]
-                        data['hIP4'] = hIP[3][0]
-                        data['hCountry1'] = hCountry[0][0]
-                        data['hCountry2'] = hCountry[1][0]
-                        data['hCountry3'] = hCountry[2][0]
-                        if len(hCountry) and len(hIP) > 4:
-                            print("pass~~~~~~~~~~~~~~")
-                            data['hCountry'] = hCountry[0][0]
-                            data['hIP'] = hIP[0][0]
-                            data['hIP1'] = hIP[0][0]
-                            data['hIP2'] = hIP[1][0]
-                            data['hIP3'] = hIP[2][0]
-                            data['hIP4'] = hIP[3][0]
-                            data['hIP5'] = hIP[4][0]
-                            data['hCountry1'] = hCountry[0][0]
-                            data['hCountry2'] = hCountry[1][0]
-                            data['hCountry3'] = hCountry[2][0]
+
+        ipKeyList = ['hIP1', 'hIP2', 'hIP3', 'hIP4', 'hIP5']
+        countryKeyList = ['hCountry1', 'hCountry2', 'hCountry3']
+
+  
+        # check ip fisrt
+        if len(hIP) > 0:
+            ipListNum = 5
+            if len(hIP) <= 5:
+                ipListNum = len(hIP)
+            for i in range(0, ipListNum):
+                data[ipKeyList[i]] = hIP[i][0]
+
+        # check country
+        if len(hCountry) > 0:
+            countryListNum = 3
+            if len(hCountry) <= 3 :
+                countryListNum = len(hCountry)
+            for i in range (0, countryListNum):
+                data[countryKeyList[i]] = hCountry[i][0]
+
+
+        # if len(hCountry) and len(hIP) > 0:
+        #     data['hCountry'] = hCountry[0][0]
+        #     data['hIP'] = hIP[0][0]
+        #     data['hIP1'] = hIP[0][0]
+        #     data['hCountry1'] = hCountry[0][0]
+        #     if len(hCountry) and len(hIP) > 1:
+        #         data['hCountry'] = hCountry[0][0]
+        #         data['hIP'] = hIP[0][0]
+        #         data['hIP1'] = hIP[0][0]
+        #         data['hIP2'] = hIP[1][0]
+        #         data['hCountry1'] = hCountry[0][0]
+        #         data['hCountry2'] = hCountry[1][0]
+        #         if len(hCountry) and len(hIP) > 2:
+        #             data['hCountry'] = hCountry[0][0]
+        #             data['hIP'] = hIP[0][0]
+        #             data['hIP1'] = hIP[0][0]
+        #             data['hIP2'] = hIP[1][0]
+        #             data['hIP3'] = hIP[2][0]
+        #             data['hCountry1'] = hCountry[0][0]
+        #             data['hCountry2'] = hCountry[1][0]
+        #             data['hCountry3'] = hCountry[2][0]
+        #             if len(hCountry) and len(hIP) > 3:
+        #                 data['hCountry'] = hCountry[0][0]
+        #                 data['hIP'] = hIP[0][0]
+        #                 data['hIP1'] = hIP[0][0]
+        #                 data['hIP2'] = hIP[1][0]
+        #                 data['hIP3'] = hIP[2][0]
+        #                 data['hIP4'] = hIP[3][0]
+        #                 data['hCountry1'] = hCountry[0][0]
+        #                 data['hCountry2'] = hCountry[1][0]
+        #                 data['hCountry3'] = hCountry[2][0]
+        #                 if len(hCountry) and len(hIP) > 4:
+        #                     data['hCountry'] = hCountry[0][0]
+        #                     data['hIP'] = hIP[0][0]
+        #                     data['hIP1'] = hIP[0][0]
+        #                     data['hIP2'] = hIP[1][0]
+        #                     data['hIP3'] = hIP[2][0]
+        #                     data['hIP4'] = hIP[3][0]
+        #                     data['hIP5'] = hIP[4][0]
+        #                     data['hCountry1'] = hCountry[0][0]
+        #                     data['hCountry2'] = hCountry[1][0]
+        #                     data['hCountry3'] = hCountry[2][0]
           
             self.render("staticurl.html", data=data)
         else:
@@ -209,7 +215,6 @@ class staticurlHandler(coreHandler):
                 )
             ).offset((pageNumber-1) * dataNum).limit(dataNum)
             
-            # print("################datainfo")
             
             result['datainfo'] = []
             for r in dataInfo:
@@ -223,11 +228,7 @@ class staticurlHandler(coreHandler):
                     short_url_access_agent_name = r.ShorturlOverview.short_url_access_agent_name,
                     short_url_createTime = r.ShorturlOverview.short_url_createTime.strftime("%Y-%m-%d %H:%M:%S")
                 )
-                print('~~~~~~~~~~~~~~~~~~~~~d')
-                print(obj)
                 result['datainfo'].append(obj)
-            # print("~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-            # print(result['datainfo'])
             if result["datainfo"]:
                 result["statuscode"] = 200
             else:

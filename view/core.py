@@ -15,16 +15,6 @@ from wtforms.validators import DataRequired, URL
 class coreHandler(requesthandler):
     # get the shortcode from codemap
     def getCode(self, originalUrl):
-        # shortCode1 = (
-        #     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-        #     'k', 'm', 'n', 'p', 'q', 'r', 's', 't',
-        #     'u', 'v', 'w', 'x', 'y', 'z', '1', '2',
-        #     '3', '4', '5', '6', '7', '8', '9', 'A',
-        #     'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J',
-        #     'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S',
-        #     'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-        # )
-
         shortCode = []
         for code in range(97, 123):
             if (code == 105 or code == 106 or code == 108 or code == 111):
@@ -55,15 +45,9 @@ class coreHandler(requesthandler):
                 k = 0x00000036 & p
                 shortCodeList.insert(0, shortCode[k][::-1])
                 p = p >> 6
-                # print(shortCode[k])
             code.append(''.join(shortCodeList))
         return code
 
-        # p0 = int(originalMd5[0*8:(0+1)*8],16)
-        # p1 = originalMd5[1*8:(1+1)*8]
-        # p2 = int(originalMd5[2*8:(2+1)*8],16)
-        # p3 = int(originalMd5[3*8:(3+1)*8],16)
-        # return p0,p1,p2,p3
 
     # get md5 for long url
     def getMd5(self, originalUrl):
@@ -85,13 +69,6 @@ class coreHandler(requesthandler):
             date_to = datetime.datetime(day.year, day.month, day.day)
             yield str(date_to)[6:10]
 
-    # get last 14 days list
-    # def getDay_list_14(self,daynow):
-    #     for i in range(1, 15):
-    #         oneday = datetime.timedelta(days=i)
-    #         day = daynow - oneday
-    #         date_to = datetime.datetime(day.year, day.month, day.day)
-    #         yield str(date_to)[6:10]
 
     # get form Params
     @property
@@ -106,8 +83,6 @@ class coreHandler(requesthandler):
             )
             for item in formparams.items()
         }
-        print("xxxxxxxxxxxxxxxxxxxxxxxxxxxpa")
-        print(formparams)
         return formparams
     
     # get the new session
@@ -124,7 +99,7 @@ class coreHandler(requesthandler):
     @property
     #get server ip address
     def gerIP(self):
-        return "http://3.105.189.187/"
+        return "http://2a.nz/"
 
      
 
