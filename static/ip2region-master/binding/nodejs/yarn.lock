@@ -1289,17 +1289,9 @@ minimatch@^3.0.2, minimatch@^3.0.3:
   dependencies:
     brace-expansion "^1.0.0"
 
-minimist@1.2.2:
+minimist@1.2.2, minimist@^1.2.2, minimist@~1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.2.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
-
-minimist@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.2.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
-
-minimist@~1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.2.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
 
 mkdirp@^0.5.1:
   version "0.5.1"
@@ -1452,8 +1444,8 @@ path-is-absolute@^1.0.0:
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
 
 path-parse@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.5.tgz#3c1adf871ea9cd6c9431b6ea2bd74a0ff055c4c1"
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
 
 path-type@^1.0.0:
   version "1.1.0"
